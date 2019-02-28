@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_item_bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/fieldSetMargin"
+    android:paddingLeft="@dimen/formMargin"
+    android:paddingRight="@dimen/formMargin"
+    android:paddingTop="@dimen/fieldSetMargin">
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:scaleType="centerCrop"
+        android:src="@color/commonBackground" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/iconPadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/banner"
+        android:orientation="vertical">
+        <include layout="@layout/item_list_article_orginal" />
+    </LinearLayout>
+</RelativeLayout>

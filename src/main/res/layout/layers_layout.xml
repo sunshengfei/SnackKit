@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.freddon.android.snackkit.extension.widget.MaskLayoutView
+        android:id="@+id/empty_layout_neterror"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maskIcon="@drawable/flag_linkerror"
+        app:maskText="请求错误" />
+
+    <com.freddon.android.snackkit.extension.widget.MaskLayoutView
+        android:id="@+id/empty_layout_exception"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maskIcon="@drawable/flag_sad"
+        app:maskText="数据错误" />
+
+    <com.freddon.android.snackkit.extension.widget.MaskLoadingView
+        android:id="@+id/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/commonBackground"
+        />
+
+    <com.freddon.android.snackkit.extension.widget.MaskLayoutView
+        android:id="@+id/empty_layout_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maskIcon="@drawable/flag_404"
+        app:maskText="没有内容" />
+
+
+</FrameLayout>

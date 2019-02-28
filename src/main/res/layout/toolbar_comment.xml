@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tabBarHeight"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/background_top_line"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/view_praise"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_praise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/iconPadding"
+            android:layout_marginLeft="@dimen/fieldSetMargin"
+            android:layout_marginRight="@dimen/iconPadding"
+            android:layout_marginStart="@dimen/fieldSetMargin"
+            android:button="@drawable/selector_icon_favorite_18"
+            android:gravity="center_vertical"
+            android:maxEms="5"
+            android:maxLines="1"
+            android:clickable="false"
+            android:paddingBottom="@dimen/fieldSetMargin"
+            android:paddingEnd="@dimen/letterSpacing"
+            android:paddingLeft="@dimen/letterSpacing"
+            android:paddingRight="@dimen/letterSpacing"
+            android:paddingStart="@dimen/letterSpacing"
+            android:paddingTop="@dimen/fieldSetMargin"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            tools:text="1989" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/view_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/letterSpacing"
+        android:layout_marginStart="@dimen/letterSpacing"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <CheckBox
+            android:id="@+id/cb_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/ic_textsms_black_18dp"
+            android:clickable="false"
+            android:gravity="center_vertical"
+            android:maxEms="5"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/fieldSetMargin"
+            android:paddingEnd="@dimen/letterSpacing"
+            android:paddingLeft="@dimen/letterSpacing"
+            android:paddingRight="@dimen/letterSpacing"
+            android:paddingStart="@dimen/letterSpacing"
+            android:paddingTop="@dimen/fieldSetMargin"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            tools:text="1989" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_comment_dock"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/textLineSpacing"
+        android:layout_marginLeft="@dimen/fieldSetMargin"
+        android:layout_marginRight="@dimen/fieldSetMargin"
+        android:layout_marginStart="@dimen/fieldSetMargin"
+        android:layout_marginTop="@dimen/textLineSpacing"
+        android:background="@drawable/white_bg_border_gray_elp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/fieldSetMargin"
+            android:drawableLeft="@drawable/v_pen"
+            android:drawablePadding="@dimen/iconPadding"
+            android:gravity="center_vertical"
+            android:text="写评论"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5" />
+    </LinearLayout>
+</LinearLayout>

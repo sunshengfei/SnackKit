@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/formMargin">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/icon_face"
+        android:tint="@color/defaultHintTextColor" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/iconPadding"
+        android:textColor="@color/defaultHintTextColor"
+        android:textSize="@dimen/H3"
+        tools:text="菜单1" />
+</LinearLayout>

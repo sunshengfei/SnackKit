@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background_top_line"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/fieldSetMargin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_type_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/letterGap"
+            android:text="分类"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/H3" />
+
+        <com.freddon.android.snackkit.extension.widget.container.RadioGroupPro
+            android:id="@+id/rg_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:horizontalSpace="@dimen/letterGap"
+            app:lineWidth="1dp">
+
+            <RadioButton
+                android:id="@+id/rb_type_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:checked="true"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="博文" />
+
+            <RadioButton
+                android:id="@+id/rb_type_bug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="虫洞" />
+
+            <RadioButton
+                android:id="@+id/rb_type_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="动态" />
+
+            <RadioButton
+                android:id="@+id/rb_type_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:text="用户" />
+
+        </com.freddon.android.snackkit.extension.widget.container.RadioGroupPro>
+
+
+        <TextView
+            android:id="@+id/tv_date_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/letterGap"
+            android:text="时间"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/H3" />
+
+        <com.freddon.android.snackkit.extension.widget.container.RadioGroupPro
+            android:id="@+id/rg_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:horizontalSpace="@dimen/letterGap"
+            app:lineWidth="1dp">
+
+            <RadioButton
+                android:id="@+id/rb_date_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:checked="true"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="默认" />
+
+            <RadioButton
+                android:id="@+id/rb_date_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="最近一周" />
+
+            <RadioButton
+                android:id="@+id/rb_date_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="最近一月" />
+
+            <RadioButton
+                android:id="@+id/rb_date_halfYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:text="最近六月" />
+
+            <RadioButton
+                android:id="@+id/rb_date_earlier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:text="更早" />
+        </com.freddon.android.snackkit.extension.widget.container.RadioGroupPro>
+
+
+        <TextView
+            android:id="@+id/tv_content_match_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/letterGap"
+            android:text="内容匹配"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/H3" />
+
+        <com.freddon.android.snackkit.extension.widget.container.RadioGroupPro
+            android:id="@+id/rg_content_match"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:horizontalSpace="@dimen/letterGap"
+            app:lineWidth="1dp">
+
+            <RadioButton
+                android:id="@+id/rb_content_match_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:checked="true"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="内容匹配优先" />
+
+            <RadioButton
+                android:id="@+id/rb_content_match_keyword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="关键字优先" />
+        </com.freddon.android.snackkit.extension.widget.container.RadioGroupPro>
+
+
+        <TextView
+            android:id="@+id/tv_sort_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/letterGap"
+            android:text="时间排序"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/H3" />
+
+        <com.freddon.android.snackkit.extension.widget.container.RadioGroupPro
+            android:id="@+id/rg_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:horizontalSpace="@dimen/letterGap"
+            app:lineWidth="1dp">
+
+            <RadioButton
+                android:id="@+id/rb_sort_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:checked="true"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="倒序" />
+
+            <RadioButton
+                android:id="@+id/rb_sort_asc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/abc_btn_radio_material"
+                android:paddingRight="@dimen/fieldSpacing"
+                android:text="正序" />
+        </com.freddon.android.snackkit.extension.widget.container.RadioGroupPro>
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            style="?android:textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/formMargin"
+            android:background="@color/colorAccent"
+            android:padding="10dp"
+            android:text="@string/confirm"
+            android:textColor="@color/whiteTextColor"
+            android:textSize="@dimen/H3"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

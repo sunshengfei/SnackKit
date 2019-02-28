@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WaterRippleView">
+        <attr name="width" format="dimension"/>
+        <attr name="height" format="dimension"/>
+        <attr name="background_color" format="color"/>
+        <attr name="shadow_color" format="color"/>
+        <attr name="content_color" format="color"/>
+        <attr name="desc_color" format="color"/>
+        <attr name="ripple_color" format="color"/>
+        <attr name="content_size" format="dimension"/>
+        <attr name="desc_size" format="dimension"/>
+        <attr name="center_content" format="string"/>
+        <attr name="desc_content" format="string"/>
+        <attr name="desc2_content" format="string"/>
+        <attr name="total_duration" format="integer"/>
+        <attr name="beat_duration" format="integer"/>
+        <attr name="ripple_duration" format="integer"/>
+        <attr name="ripple_alpha" format="float"/>
+    </declare-styleable>
+</resources>

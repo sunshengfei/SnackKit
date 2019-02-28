@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/commonBackground"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/formMargin"
+                    android:background="@color/commonBackground" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting_modify_info"
+                    style="@style/SettingItemStyle"
+                    android:paddingLeft="@dimen/formMargin"
+                    android:paddingRight="@dimen/fieldSetMargin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="修改资料"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/H3" />
+
+
+                    <ImageView
+                        style="@style/IconStyle.small"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/v_direct_right_gray"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/DividerStyle"
+                    android:layout_marginLeft="@dimen/formMargin" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting_should_knows"
+                    style="@style/SettingItemStyle"
+                    android:paddingLeft="@dimen/formMargin"
+                    android:paddingRight="@dimen/fieldSetMargin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="使用须知"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/H3" />
+
+
+                    <ImageView
+                        style="@style/IconStyle.small"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/v_direct_right_gray"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/DividerStyle"
+                    android:layout_marginLeft="@dimen/formMargin" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting_about"
+                    style="@style/SettingItemStyle"
+                    android:paddingLeft="@dimen/formMargin"
+                    android:paddingRight="@dimen/fieldSetMargin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="关于"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/H3" />
+
+
+                    <ImageView
+                        style="@style/IconStyle.small"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/v_direct_right_gray"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/formMargin"
+                    android:background="@color/commonBackground" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting_update"
+                    style="@style/SettingItemStyle"
+                    android:paddingLeft="@dimen/formMargin"
+                    android:paddingRight="@dimen/fieldSetMargin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="版本更新"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/H3" />
+
+                    <ImageView
+                        style="@style/IconStyle.small"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/v_direct_right_gray"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/DividerStyle"
+                    android:layout_marginLeft="@dimen/formMargin" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting_feedback"
+                    style="@style/SettingItemStyle"
+                    android:paddingLeft="@dimen/formMargin"
+                    android:paddingRight="@dimen/fieldSetMargin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="反馈"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="@dimen/H3" />
+
+                    <ImageView
+                        style="@style/IconStyle.small"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/v_direct_right_gray"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

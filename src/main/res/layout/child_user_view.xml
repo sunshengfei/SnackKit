@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <!--个人信息 begin-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/fieldSetMargin"
+                android:paddingTop="@dimen/formMargin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/abc_action_bar_default_height_material">
+                    <com.freddon.android.snackkit.extension.widget.ElipseImageView
+                        android:id="@+id/iv_head"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_launcher"
+                        app:oval="true"
+                        android:transitionName="SHARE_ELEMENT_PCITURE"
+                        app:corner_radius="30dp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/tablePadding"
+                    android:layout_marginTop="@dimen/tablePadding"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/H3" />
+
+                    <TextView
+                        android:id="@+id/tv_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_name"
+                        android:layout_marginLeft="@dimen/fieldSetMargin"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:paddingLeft="3dp"
+                        android:paddingRight="3dp"
+                        android:text="Lv0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/H5"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_connecting_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/iconPadding"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_connecting_care"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/tablePadding"
+                        android:background="@drawable/accent_bg_round_corner"
+                        android:paddingBottom="@dimen/iconSpacing"
+                        android:paddingLeft="@dimen/iconPadding"
+                        android:paddingRight="@dimen/iconPadding"
+                        android:paddingTop="@dimen/iconSpacing"
+                        android:text="关注"
+                        android:textColor="@color/whiteTextColor"
+                        android:textSize="@dimen/H5" />
+
+                    <TextView
+                        android:id="@+id/tv_connecting_chat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/green_bg_round_corner"
+                        android:paddingBottom="@dimen/iconSpacing"
+                        android:paddingLeft="@dimen/iconPadding"
+                        android:paddingRight="@dimen/iconPadding"
+                        android:paddingTop="@dimen/iconSpacing"
+                        android:text="私信"
+                        android:textColor="@color/whiteTextColor"
+                        android:textSize="@dimen/H5" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    style="@style/DividerStyle"
+                    android:layout_marginBottom="@dimen/iconPadding"
+                    android:layout_marginLeft="@dimen/formMargin"
+                    android:layout_marginRight="@dimen/formMargin" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/formMargin"
+                    android:paddingRight="@dimen/formMargin">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_my_article"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/formMargin"
+                        android:paddingRight="@dimen/fieldSetMargin">
+
+                        <TextView
+                            android:id="@+id/tv_my_article"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="@dimen/textPadding"
+                            android:gravity="center"
+                            android:text="博文"
+                            android:textColor="@color/defaultTextColor"
+                            android:textSize="@dimen/H3" />
+
+                        <TextView
+                            android:id="@+id/tv_my_article_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_my_article"
+                            android:layout_centerHorizontal="true"
+                            android:inputType="number"
+                            android:text="0"
+                            android:textColor="@color/defaultTextColor"
+                            android:textSize="@dimen/H4"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_my_words"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/formMargin"
+                        android:paddingRight="@dimen/fieldSetMargin">
+
+                        <TextView
+                            android:id="@+id/tv_my_words"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="@dimen/textPadding"
+                            android:gravity="center"
+                            android:text="码字"
+                            android:textColor="@color/defaultTextColor"
+                            android:textSize="@dimen/H3" />
+
+                        <TextView
+                            android:id="@+id/tv_my_words_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_my_words"
+                            android:layout_centerHorizontal="true"
+                            android:text="0"
+                            android:textColor="@color/defaultTextColor"
+                            android:textSize="@dimen/H4"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_my_fans"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/formMargin"
+                        android:paddingRight="@dimen/fieldSetMargin">
+
+                        <TextView
+                            android:id="@+id/tv_my_fans"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="@dimen/textPadding"
+                            android:gravity="center"
+                            android:text="粉丝"
+                            android:textColor="@color/defaultTextColor"
+                            android:textSize="@dimen/H3" />
+
+                        <TextView
+                            android:id="@+id/tv_my_fans_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_my_fans"
+                            android:layout_centerHorizontal="true"
+                            android:inputType="number"
+                            android:text="0"
+                            android:textColor="@color/defaultTextColor"
+                            android:textSize="@dimen/H4"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/iconPadding"
+                android:background="@color/commonBackground" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_item_my_care"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_item_bg"
+                    app:tabIcon="@drawable/ic_menu_care"
+                    app:text="我关注的"
+                    app:textColor="@color/defaultTextColor"
+                    app:textSize="@dimen/H4" />
+
+                <View
+                    android:layout_width="@dimen/iconPadding"
+                    android:layout_height="match_parent"
+                    android:background="@color/commonBackground" />
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_item_my_loves"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_item_bg"
+                    app:tabIcon="@drawable/ic_menu_admire"
+                    app:text="我赞过的"
+                    app:textColor="@color/defaultTextColor"
+                    app:textSize="@dimen/H4" />
+
+                <View
+                    android:layout_width="@dimen/iconPadding"
+                    android:layout_height="match_parent"
+                    android:background="@color/commonBackground" />
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_item_my_favs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_item_bg"
+                    app:tabIcon="@drawable/ic_menu_fav"
+                    app:text="我的收藏"
+                    app:textColor="@color/defaultTextColor"
+                    app:textSize="@dimen/H4" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/iconPadding"
+                android:background="@color/commonBackground" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_item_my_snacks"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_item_bg"
+                    app:tabIcon="@drawable/ic_menu_snacks"
+                    app:text="我的动态"
+                    app:textColor="@color/defaultTextColor"
+                    app:textSize="@dimen/H4" />
+
+                <View
+                    android:layout_width="@dimen/iconPadding"
+                    android:layout_height="match_parent"
+                    android:background="@color/commonBackground" />
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:tabIcon="@drawable/transparent"
+                    app:text=""
+                    app:textColor="@color/defaultTextColor"
+                    app:textSize="@dimen/H4" />
+
+                <View
+                    android:layout_width="@dimen/iconPadding"
+                    android:layout_height="match_parent"
+                    android:background="@color/commonBackground" />
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:tabIcon="@drawable/transparent"
+                    app:text=""
+                    app:textColor="@color/defaultTextColor"
+                    app:textSize="@dimen/H4" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

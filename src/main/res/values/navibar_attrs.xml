@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NaviBar">
+        <attr name="titleAlign">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="isShowFilter" format="boolean" />
+        <attr name="filterStr" format="string" />
+        <attr name="filterColor" format="reference|color" />
+        <attr name="bgBarColor" format="reference|color" />
+        <attr name="searchHintStr" format="string" />
+        <attr name="searchHintColor" format="reference|color" />
+        <attr name="searchStr" format="string" />
+        <attr name="searchColor" format="reference|color" />
+        <attr name="isShowBack" format="boolean" />
+        <attr name="isGoneBack" format="boolean" />
+        <attr name="isShowMenu" format="boolean" />
+        <attr name="backIcon" format="reference" />
+        <attr name="menu_icon_1st" format="reference" />
+        <attr name="menu_icon_1st_badge" format="string" />
+        <attr name="menu_icon_2nd" format="reference" />
+        <attr name="menu_icon_2nd_badge" format="string" />
+        <attr name="menu_icon_3rd" format="reference" />
+        <attr name="menu_icon_3rd_badge" format="string" />
+        <attr name="menu_text" format="string|reference" />
+        <attr name="left_menu_text" format="string|reference" />
+        <attr name="menuTextColor" format="reference|color" />
+        <attr name="mode" format="string" />
+        <attr name="titleStr" format="string|reference" />
+        <attr name="titleFontSize" format="reference|dimension" />
+        <attr name="titleColor" format="reference|color" />
+        <attr name="subtitleStr" format="string" />
+        <attr name="subtitleColor" format="reference|color" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/layout_navibar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_horizontal">
+
+        <LinearLayout
+                android:id="@+id/layout_search_titleBar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/selector_icon_bg"
+                android:gravity="center"
+                android:minWidth="@dimen/formMargin"
+                android:orientation="horizontal"
+                android:layout_alignParentLeft="true">
+
+            <LinearLayout
+                    android:id="@+id/layout_search_titleBar_backview"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                <com.freddon.android.snackkit.extension.widget.ElipseImageView
+                        android:id="@+id/iv_search_titleBar_back"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/selector_click_nav_icon_return_black"
+                        android:visibility="visible"
+                        app:corner_radius="30dp"
+                        app:oval="true"/>
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/tv_search_titleBar_LeftMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:maxWidth="64dp"
+                    android:minWidth="56dp"
+                    android:text="取消"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/H4"
+                    android:visibility="gone"/>
+        </LinearLayout>
+
+        <RelativeLayout
+                android:id="@+id/layout_search_titleBar_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/layout_search_titleBar_menu"
+                android:layout_toRightOf="@+id/layout_search_titleBar_back"
+                android:gravity="fill_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/tablePadding"
+                android:paddingTop="@dimen/tablePadding"
+                android:visibility="visible">
+
+
+            <TextView
+                    android:id="@+id/tv_search_titleBar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_title_material_toolbar"/>
+
+            <LinearLayout
+                    android:id="@+id/layout_search_titleBar_textBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp">
+                <!--android:background="@drawable/selector_search_titlebar"-->
+
+                <TextView
+                        android:id="@+id/tv_search_titleBar_textBox_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="3dp"
+                        android:drawablePadding="6dp"
+                        android:ellipsize="middle"
+                        android:gravity="center_vertical"
+                        android:maxLength="4"
+                        android:paddingRight="@dimen/tablePadding"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/abc_text_size_title_material_toolbar"
+                        android:visibility="gone"/>
+
+                <com.freddon.android.snackkit.extension.widget.ClearEditText
+                        android:id="@+id/et_search_titleBar_textBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/transparent"
+                        android:drawablePadding="@dimen/tablePadding"
+                        android:drawableRight="@drawable/ic_nav_cross_white"
+                        android:gravity="left|center_vertical"
+                        android:hint="@string/info_text_keyword"
+                        android:imeOptions="actionSearch"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/commonBackground"
+                        android:textSize="@dimen/abc_text_size_title_material_toolbar"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/layout_search_titleBar_complex"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                <TextView
+                        android:id="@+id/tv_search_titleBar_complex_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:maxLines="1"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/abc_text_size_title_material_toolbar"/>
+
+                <TextView
+                        android:id="@+id/tv_search_titleBar_complex_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:maxLines="1"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/abc_text_size_subtitle_material_toolbar"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+                android:id="@+id/layout_search_titleBar_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:minWidth="56dp"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:id="@+id/layout_search_titleBar_menu_viewGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:minWidth="56dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                <TextView
+                        android:id="@+id/tv_search_titleBar_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_icon_bg"
+                        android:gravity="left|center_vertical"
+                        android:maxLength="8"
+                        android:maxLines="1"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/H4"
+                        android:visibility="gone"/>
+
+                <RelativeLayout
+                        android:id="@+id/viewparent_search_titleBar_menu_1st"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_icon_bg"
+                        android:gravity="center_vertical|right"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:visibility="gone">
+
+                    <ImageView
+                            android:id="@+id/iv_search_titleBar_menu_1st"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:scaleType="center"
+                            android:visibility="gone"/>
+
+                    <TextView
+                            android:id="@+id/tv_search_titleBar_menu_1st_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/iv_search_titleBar_menu_1st"
+                            android:layout_marginRight="2dp"
+                            android:layout_marginTop="1dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:padding="0dp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/H5"
+                            android:visibility="gone"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                        android:id="@+id/viewparent_search_titleBar_menu_2nd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_icon_bg"
+                        android:gravity="center_vertical|right"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:visibility="gone">
+
+                    <ImageView
+                            android:id="@+id/iv_search_titleBar_menu_2nd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:scaleType="center"
+                            android:visibility="gone"/>
+
+                    <TextView
+                            android:id="@+id/tv_search_titleBar_menu_2nd_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/iv_search_titleBar_menu_2nd"
+                            android:layout_marginRight="2dp"
+                            android:layout_marginTop="1dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:padding="0dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/H5"
+                            android:visibility="gone"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:id="@+id/viewparent_search_titleBar_menu_3rd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_icon_bg"
+                        android:gravity="center_vertical|right"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:visibility="gone">
+
+                    <ImageView
+                            android:id="@+id/iv_search_titleBar_menu_3rd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:scaleType="center"
+                            android:visibility="gone"/>
+
+                    <TextView
+                            android:id="@+id/tv_search_titleBar_menu_3rd_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/iv_search_titleBar_menu_3rd"
+                            android:layout_marginRight="2dp"
+                            android:layout_marginTop="1dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:padding="0dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/H5"
+                            android:visibility="gone"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

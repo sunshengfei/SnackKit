@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:src="@drawable/ic_action_star_solid" android:drawable="@drawable/ic_action_star_solid" android:state_selected="true" />
+    <item android:src="@drawable/ic_action_star" android:drawable="@drawable/ic_action_star" />
+</selector>

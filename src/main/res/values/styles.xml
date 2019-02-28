@@ -1,0 +1,107 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/defaultTextColor</item>
+    </style>
+
+    <style name="DeciiTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowAnimationStyle">@style/AnimationActivityNone</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowEnterAnimation">@anim/abc_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/abc_fade_out</item>
+    </style>
+
+    <style name="DeciiTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="DeciiTheme.Translucent">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivityNone</item>
+    </style>
+
+    <style name="DeciiTheme.Translucent.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/solidMask</item>
+    </style>
+
+
+    <style name="DeciiTheme.Translucent.Fullscreen.Splash">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorSplash</item>
+        <item name="colorPrimaryDark">@color/colorSplash</item>
+    </style>
+
+    <style name="DeciiTheme.Translucent.Fullscreen">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AnimationActivityNone">
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <!-- Modal Activity 动画主题-->
+    <style name="ModalTheme" parent="DeciiTheme">
+        <item name="android:windowAnimationStyle">@style/Translucent.Modal.Style</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Translucent.Modal.Style" parent="@android:style/Animation.Translucent" type="text/css">
+        <item name="android:windowEnterAnimation">@anim/animate_modal_up</item>
+        <item name="android:windowExitAnimation">@anim/animate_modal_down</item>
+    </style>
+
+    <!-- NavigationActivity 动画主题-->
+    <style name="NavigationTheme" parent="DeciiTheme">
+        <item name="android:windowAnimationStyle">@style/Translucent.Navigation.Style</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="NavigationTheme.NoActionBar" parent="DeciiTheme.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/Translucent.Navigation.Style</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="NavigationTheme.NoActionBar.TranslucentStatusBar">
+
+    </style>
+
+    <style name="Translucent.Navigation.Style" parent="@android:style/Animation.Translucent" >
+        <item name="android:windowEnterAnimation">@anim/animate_slide_right</item>
+        <item name="android:windowExitAnimation">@anim/animate_slide_left</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+</resources>

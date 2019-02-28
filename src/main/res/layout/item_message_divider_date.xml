@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/iconSpacing"
+    android:paddingEnd="@dimen/iconSpacing"
+    android:paddingLeft="@dimen/iconSpacing"
+    android:paddingRight="@dimen/iconSpacing"
+    android:paddingTop="@dimen/iconSpacing">
+
+    <TextView
+        android:id="@+id/tv_content_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/letterSpacing"
+        android:background="@drawable/white_bg_border_gray_round_corner"
+        android:ellipsize="end"
+        android:paddingBottom="@dimen/letterGap"
+        android:paddingLeft="@dimen/cardPadding"
+        android:paddingRight="@dimen/cardPadding"
+        android:paddingTop="@dimen/letterGap"
+        android:textColor="@color/defaultHintTextColor"
+        android:textSize="@dimen/H5"
+        tools:text="2017年02月04日17:09:57" />
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_bg_border_gray_round_corner"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="@dimen/formPadding"
+            android:paddingRight="@dimen/formPadding"
+            android:paddingTop="@dimen/formPadding"
+            android:text="标题"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/H3" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/formPadding"
+            android:text="内容"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/H5" />
+    </LinearLayout>
+
+    <View style="@style/DividerStyle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/negative"
+            style="@style/SettingItemStyle"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/H3"
+            android:textStyle="bold" />
+
+        <View style="@style/DividerStyleVertical" />
+
+        <Button
+            android:id="@+id/positive"
+            style="@style/SettingItemStyle"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/H3"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

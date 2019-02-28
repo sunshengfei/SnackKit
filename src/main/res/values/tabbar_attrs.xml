@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BaseCell">
+
+        <attr name="text" format="reference|string" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="textSize" format="reference|dimension" />
+        <attr name="tabIcon" format="reference" />
+        <attr name="scaleType">
+            <enum name="center" value="5" />
+            <enum name="centerCrop" value="6" />
+            <enum name="fitXY" value="1" />
+            <enum name="fitCenter" value="3" />
+        </attr>
+
+    </declare-styleable>
+</resources>

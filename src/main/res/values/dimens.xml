@@ -1,0 +1,69 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- @Common -->
+    <!-- Margin-->
+    <dimen name="tableMargin">16dp</dimen>
+    <dimen name="formMargin">16dp</dimen>
+    <dimen name="fieldSetMargin">10dp</dimen>
+    <dimen name="cardMargin">18dp</dimen>
+    <dimen name="textMargin">16dp</dimen>
+    <dimen name="lineButtonMargin">32dp</dimen>
+    <dimen name="msgItemMargin">60dp</dimen>
+
+    <!-- Padding-->
+    <dimen name="menuPadding">6dp</dimen>
+    <dimen name="tablePadding">10dp</dimen>
+    <dimen name="formPadding">16dp</dimen>
+    <dimen name="iconPadding">6dp</dimen>
+    <dimen name="cardPadding">12dp</dimen>
+    <dimen name="textPadding">6dp</dimen>
+    <dimen name="tabbarPadding">4dp</dimen>
+
+    <!-- Cell Spacing -->
+    <dimen name="tableCellSpacing">8dp</dimen>
+    <dimen name="fieldSpacing">10dp</dimen>
+    <dimen name="iconSpacing">3dp</dimen>
+    <dimen name="letterSpacing">2dp</dimen>
+    <dimen name="letterGap">6dp</dimen>
+    <dimen name="textLineSpacing">6dp</dimen>
+
+    <!--Font size-->
+    <dimen name="XH1">48sp</dimen>
+    <dimen name="XH2">42sp</dimen>
+    <dimen name="XH3">36sp</dimen>
+    <dimen name="XH4">32sp</dimen>
+    <dimen name="XH5">26sp</dimen>
+    <dimen name="XH6">24sp</dimen>
+
+    <dimen name="H1">20sp</dimen>
+    <dimen name="H2">18sp</dimen>
+    <dimen name="H3">15sp</dimen>
+    <dimen name="H4">14sp</dimen>
+    <dimen name="H5">12sp</dimen>
+    <dimen name="H6">10sp</dimen>
+
+    <!--border line-->
+    <dimen name="defaultBorderThick">1dp</dimen>
+    <dimen name="dividerThick">1dp</dimen>
+    <dimen name="commonCornerRadius">4dp</dimen>
+
+    <!-- Height -->
+    <dimen name="inputFieldHeight">48dp</dimen>
+    <dimen name="navBarHeight">56dp</dimen>
+    <dimen name="tabBarHeight">48dp</dimen>
+
+    <dimen name="contentComposerHeight">200dp</dimen>
+
+    <dimen name="tabCreativeMenuPagerHeight">220dp</dimen>
+    <!-- DIY -->
+
+    <dimen name="avatarNormal">36dp</dimen>
+    <dimen name="avatarNormalRadius">18dp</dimen>
+
+
+
+</resources>

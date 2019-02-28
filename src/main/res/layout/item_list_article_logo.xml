@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_item_bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/fieldSetMargin"
+    android:paddingLeft="@dimen/formMargin"
+    android:paddingRight="@dimen/formMargin"
+    android:paddingTop="@dimen/fieldSetMargin">
+
+    <ImageView
+        android:id="@+id/icon_article_item"
+        android:layout_width="81dp"
+        android:layout_height="81dp"
+        android:layout_marginEnd="@dimen/tableCellSpacing"
+        android:layout_marginRight="@dimen/tableCellSpacing"
+        android:contentDescription="@string/emptyImage"
+        android:scaleType="centerCrop"
+        android:src="@color/commonBackground" />
+
+
+    <RelativeLayout
+        android:id="@+id/view_title_article"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tableCellSpacing"
+        android:layout_toEndOf="@+id/icon_article_item"
+        android:layout_toRightOf="@+id/icon_article_item">
+
+        <TextView
+            android:id="@+id/tag_article_item"
+            android:layout_width="14sp"
+            android:layout_height="14sp"
+            android:layout_marginEnd="@dimen/iconPadding"
+            android:layout_marginRight="@dimen/iconPadding"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/H6"
+            tools:text="心" />
+
+        <TextView
+            android:id="@+id/title_article_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/tag_article_item"
+            android:layout_toRightOf="@+id/tag_article_item"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/H3"
+            tools:text="" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/desc_article_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/view_title_article"
+        android:layout_alignStart="@+id/view_title_article"
+        android:layout_below="@+id/view_title_article"
+        android:layout_marginBottom="@dimen/tableCellSpacing"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/defaultHintTextColor"
+        android:textSize="@dimen/H5"
+        tools:text="" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/icon_article_item"
+        android:layout_alignLeft="@+id/view_title_article"
+        android:layout_alignStart="@+id/view_title_article"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/view_count_article_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            tools:text="阅读 12220" />
+
+        <TextView
+            android:id="@+id/comment_count_article_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/tableCellSpacing"
+            android:layout_marginStart="@dimen/tableCellSpacing"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            tools:text="评论 31" />
+
+        <TextView
+            android:id="@+id/praise_count_article_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/tableCellSpacing"
+            android:layout_marginStart="@dimen/tableCellSpacing"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            tools:text="赞 321" />
+
+
+        <TextView
+            android:id="@+id/tv_article_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/iconPadding"
+            android:ellipsize="end"
+            android:maxLength="8"
+            android:maxLines="1"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            android:textStyle="bold"
+            tools:text="freddon" />
+
+        <TextView
+            android:id="@+id/date_article_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/tableCellSpacing"
+            android:layout_marginStart="@dimen/tableCellSpacing"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            android:textColor="@color/defaultHintTextColor"
+            android:textSize="@dimen/H5"
+            tools:text="2016-11-22" />
+    </LinearLayout>
+</RelativeLayout>

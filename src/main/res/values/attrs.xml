@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FreekRefreshLayoutAttr">
+        <attr name="AniBackColor" format="color" />
+        <attr name="AniForeColor" format="color" />
+        <attr name="CircleSmaller" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="MaskLayoutView">
+        <attr name="maskIcon" format="reference|color" />
+        <attr name="maskText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CircledImageView">
+        <attr name="borderWidth" format="dimension" />
+        <attr name="borderColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ElipseImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="mutate_background" format="boolean" />
+        <attr name="oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+    <declare-styleable name="WrapViewContainer">
+        <attr name="lineWidth" format="dimension" />
+        <attr name="horizontalSpace" format="dimension" />
+        <attr name="maxLine" format="integer" />
+        <attr name="minWidthMode" format="boolean" />
+    </declare-styleable>
+
+    <style name="DividerStyle">
+        <item name="android:layout_height">1dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/dividerColor</item>
+    </style>
+
+    <style name="DividerStyleVertical">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">1dip</item>
+        <item name="android:background">@color/dividerColor</item>
+    </style>
+
+    <style name="SettingItemStyle">
+        <item name="android:layout_height">48dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/selector_item_bg</item>
+    </style>
+
+    <style name="IconStyle">
+        <item name="android:layout_height">48dip</item>
+        <item name="android:layout_width">48dip</item>
+    </style>
+
+
+    <style name="IconStyle.small">
+        <item name="android:layout_height">24dip</item>
+        <item name="android:layout_width">24dip</item>
+    </style>
+
+    <style name="progressBarStyle">
+        <item name="android:progressDrawable">@drawable/ic_vector_loading</item>
+        <item name="android:indeterminateDrawable">@anim/animate_v_loading</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:layout_width">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3000</item>
+        <item name="android:interpolator">@android:interpolator/linear</item>
+        <item name="android:minWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:maxWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:minHeight">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:maxHeight">@dimen/abc_action_bar_progress_bar_size</item>
+    </style>
+
+    <style name="progressBarStyle.small">
+        <item name="android:layout_height">16dip</item>
+        <item name="android:layout_width">16dip</item>
+        <item name="android:minWidth">16dip</item>
+        <item name="android:maxWidth">16dip</item>
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+    </style>
+
+
+    <dimen name="abc_action_bar_progress_bar_size">48dp</dimen>
+</resources>
