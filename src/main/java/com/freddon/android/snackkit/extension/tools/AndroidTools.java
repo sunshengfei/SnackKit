@@ -74,7 +74,7 @@ public class AndroidTools {
      */
     public static CharSequence postFromClipBoard(Context context, String text) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        if (clipboardManager!=null || clipboardManager.hasPrimaryClip()) {
+        if (clipboardManager != null || clipboardManager.hasPrimaryClip()) {
             return clipboardManager.getPrimaryClip().getItemAt(0).getText();
         }
         return null;
@@ -102,5 +102,17 @@ public class AndroidTools {
             cachePath = context.getCacheDir().getPath();
         }
         return new File(cachePath + File.separator + uniqueName);
+    }
+
+    public static File getCacheDir(Context context, String uniqueName) {
+        String cachePath =
+                context.getCacheDir().getPath();
+        return new File(cachePath + File.separator + uniqueName);
+    }
+
+    public static File getFilesDir(Context context) {
+        String cachePath =
+                context.getFilesDir().getAbsolutePath();
+        return new File(cachePath);
     }
 }

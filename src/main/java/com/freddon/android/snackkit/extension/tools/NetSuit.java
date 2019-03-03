@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -73,6 +74,36 @@ public class NetSuit {
             return info != null && info.isConnected();
         }
         return false;
+    }
+
+
+    /**
+     * 0~4 signal merely~
+     *
+     * @param context
+     * @return
+     */
+    public static int checkWifiSignalInt(@NonNull Context context) {
+        WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (mWifiManager == null) return -1;
+        Boolean isWifi = isWifiOrMobile(context);
+        if (isWifi == null) return -2;
+        if (isWifi) {
+            WifiInfo mWifiInfo = mWifiManager.getConnectionInfo();
+            int wifi = mWifiInfo.getRssi();
+            if (wifi > -50 && wifi < 0) {//最强
+                return 4;
+            } else if (wifi > -70 && wifi < -50) {//较强
+                return 3;
+            } else if (wifi > -80 && wifi < -70) {//较弱
+                return 2;
+            } else if (wifi > -100 && wifi < -80) {//微弱
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        return -3;
     }
 
     /**
@@ -342,6 +373,7 @@ public class NetSuit {
             p = rt.exec(command);
         } catch (IOException e) {
             e.printStackTrace();
+            p = null;
         }
         return p;
     }
@@ -352,6 +384,14 @@ public class NetSuit {
                 InputStreamReader isr = new InputStreamReader(is);
                 BufferedReader br = new BufferedReader(isr);
                 String line = null;
+                boolean wait = true;
+//                while (wait) {
+//
+//                    if (callback.exit()) {
+//                        wait = false;
+//                        break;
+//                    }
+//                }
                 while ((line = br.readLine()) != null) {
                     if (callback != null) {
                         callback.out(line);
@@ -374,5 +414,7 @@ public class NetSuit {
         void err(String message);
 
         void complete(String message);
+
+        boolean exit();
     }
 }
