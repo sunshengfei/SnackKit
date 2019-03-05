@@ -51,21 +51,29 @@ public class Tabbar extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void selectTabbarCell(int selectPosition) {
-        selectTabbarCell(selectPosition, -1,-1);
-    }
-
     /**
      * @param selectPosition 选中的cell
      */
-    public void selectTabbarCell(int selectPosition, int tintColor, int tintNormal) {
+    public void selectTabbarCell(int selectPosition) {
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
             child.setSelected(i == selectPosition);
+        }
+    }
+
+    /**
+     *
+     * @param tintColor
+     * @param tintNormal
+     */
+    public void changeCellTTStyle(int tintColor, int tintNormal) {
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
             if (tintColor != -1 && tintNormal != -1 && child instanceof TabCell) {
                 ((TabCell) child).setTintWhenSelected(tintColor, tintNormal);
             }
         }
+
     }
 
 
