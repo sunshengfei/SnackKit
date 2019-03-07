@@ -83,27 +83,27 @@ public class NetSuit {
      * @param context
      * @return
      */
-    public static int checkWifiSignalInt(@NonNull Context context) {
+    public static int[] checkWifiSignalInt(@NonNull Context context) {
         WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if (mWifiManager == null) return -1;
+        if (mWifiManager == null) return new int[]{-1, 0};
         Boolean isWifi = isWifiOrMobile(context);
-        if (isWifi == null) return -2;
+        if (isWifi == null) return new int[]{-2, 0};
         if (isWifi) {
             WifiInfo mWifiInfo = mWifiManager.getConnectionInfo();
             int wifi = mWifiInfo.getRssi();
             if (wifi > -50 && wifi < 0) {//最强
-                return 4;
+                return new int[]{4, wifi};
             } else if (wifi > -70 && wifi < -50) {//较强
-                return 3;
+                return new int[]{3, wifi};
             } else if (wifi > -80 && wifi < -70) {//较弱
-                return 2;
+                return new int[]{2, wifi};
             } else if (wifi > -100 && wifi < -80) {//微弱
-                return 1;
+                return new int[]{1, wifi};
             } else {
-                return 0;
+                return new int[]{0, wifi};
             }
         }
-        return -3;
+        return new int[]{-3, 0};
     }
 
     /**
