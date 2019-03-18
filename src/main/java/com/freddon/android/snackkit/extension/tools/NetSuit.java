@@ -64,7 +64,11 @@ public class NetSuit {
                 Network[] allInfo = connecty.getAllNetworks();
                 for (int i = 0; allInfo != null && i < allInfo.length; i++) {
                     NetworkInfo inf = connecty.getNetworkInfo(allInfo[i]);
-                    if (inf.isConnected() && connecty.getActiveNetworkInfo().getDetailedState() == NetworkInfo.DetailedState.CONNECTED) {
+                    if (connecty.getActiveNetworkInfo() != null) {
+                        if (inf.isConnected() && connecty.getActiveNetworkInfo().getDetailedState() == NetworkInfo.DetailedState.CONNECTED) {
+                            return true;
+                        }
+                    } else if (inf.isConnected()) {
                         return true;
                     }
                 }

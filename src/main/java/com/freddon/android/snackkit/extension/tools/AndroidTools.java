@@ -59,10 +59,12 @@ public class AndroidTools {
      * @param context
      * @param text
      */
-    public static void copyToClipBoard(Context context, String text) {
+    public static void copyToClipBoard(@NonNull Context context, String text) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clipData = ClipData.newPlainText("文本", text);
-        clipboardManager.setPrimaryClip(clipData);
+        ClipData clipData = ClipData.newPlainText(null, text);
+        if (clipboardManager!=null){
+            clipboardManager.setPrimaryClip(clipData);
+        }
     }
 
     /**
