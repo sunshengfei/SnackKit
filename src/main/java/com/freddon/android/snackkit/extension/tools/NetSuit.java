@@ -3,6 +3,7 @@ package com.freddon.android.snackkit.extension.tools;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.*;
+import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -108,6 +109,14 @@ public class NetSuit {
             }
         }
         return new int[]{-3, 0};
+    }
+
+    public static List<ScanResult> getWifiResults(@NonNull Context context) {
+        WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (mWifiManager != null) {
+           return mWifiManager.getScanResults();
+        }
+        return null;
     }
 
     /**
