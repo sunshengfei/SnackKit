@@ -114,7 +114,7 @@ public class NetSuit {
     public static List<ScanResult> getWifiResults(@NonNull Context context) {
         WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (mWifiManager != null) {
-           return mWifiManager.getScanResults();
+            return mWifiManager.getScanResults();
         }
         return null;
     }
@@ -357,26 +357,26 @@ public class NetSuit {
 
     @SuppressLint("HardwareIds")
     private static String getMac(WifiInfo wifiInfo) {
+        String mac = null;
         if (wifiInfo != null && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            return wifiInfo.getMacAddress();
-        } else {
-            try {
-                String mac;
-                for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                    NetworkInterface intf = en.nextElement();
-                    byte[] macbytes = intf.getHardwareAddress();
-                    if (macbytes != null) {
-                        mac = bytesToString(macbytes);
-                        if (mac != null) {
-                            return mac;
-                        }
+            mac = wifiInfo.getMacAddress();
+        }
+        if (!"02:00:00:00:00:00".equals(mac)) return mac;
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                byte[] macbytes = intf.getHardwareAddress();
+                if (macbytes != null) {
+                    mac = bytesToString(macbytes);
+                    if (mac != null) {
+                        return mac;
                     }
                 }
-            } catch (SocketException e) {
-                e.printStackTrace();
             }
-            return "";
+        } catch (SocketException e) {
+            e.printStackTrace();
         }
+        return mac;
     }
 
     public static Process shell(String command) {
