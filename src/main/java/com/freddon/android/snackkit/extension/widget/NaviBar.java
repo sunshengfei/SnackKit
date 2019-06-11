@@ -111,7 +111,6 @@ public class NaviBar extends LinearLayout {
 
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.NaviBar);
-
         _rootView = (ViewGroup) findViewById(R.id.layout_navibar);
         //获取返回
         _backView = (ViewGroup) findViewById(R.id.layout_search_titleBar_back);
