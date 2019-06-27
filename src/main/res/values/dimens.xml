@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-
+    <dimen name="actionbarSize">48dp</dimen>
     <!-- @Common -->
     <!-- Margin-->
     <dimen name="tableMargin">16dp</dimen>

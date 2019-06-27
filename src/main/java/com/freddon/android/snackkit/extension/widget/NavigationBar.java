@@ -39,11 +39,15 @@ public class NavigationBar extends LinearLayout implements View.OnClickListener 
         initLayout(context);
     }
 
+    protected int layout() {
+        return R.layout.p_toolbar;
+    }
+
     private void initLayout(Context context) {
         LayoutInflater layoutInflater = (LayoutInflater) context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (layoutInflater != null) {
-            layoutInflater.inflate(R.layout.p_toolbar, this);
+            layoutInflater.inflate(layout(), this);
             backIcon = findViewById(R.id.backIcon);
             title = findViewById(R.id.title);
             subtitle = findViewById(R.id.subtitle);

@@ -4,7 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+
 import androidx.annotation.NonNull;
+
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 
@@ -21,6 +23,45 @@ public class AnimatorCenter {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(v, "rotation", fromDegree, toDegree);
         objectAnimator.setDuration(duration);
         return objectAnimator;
+    }
+
+    public static void translateAndVisible(View v, boolean isVisible) {
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(v, "translationX", isVisible ? v.getMeasuredWidth() : 0, isVisible ? 0 : v.getMeasuredWidth());
+        //创建透明度动画
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(v, "alpha", isVisible ? 0 : 1.0f, isVisible ? 1f : 0f);
+        //动画集合
+        AnimatorSet set = new AnimatorSet();
+        //添加动画
+        set.playTogether(translationX, alpha);
+        //设置时间等
+        set.setDuration(500);
+        if (isVisible) {
+            v.setVisibility(View.VISIBLE);
+        }
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (!isVisible) {
+                    v.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        set.start();
     }
 
     /**
