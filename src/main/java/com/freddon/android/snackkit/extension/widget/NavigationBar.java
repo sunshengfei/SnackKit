@@ -22,6 +22,19 @@ public class NavigationBar extends LinearLayout implements View.OnClickListener 
     private ImageView backIcon;
     private TextView title;
     private TextView subtitle;
+
+    public ImageView getMenuCustom() {
+        return menuCustom;
+    }
+
+    public ImageView getMenuMore() {
+        return menuMore;
+    }
+
+    public ViewGroup getMenuLayout() {
+        return menuLayout;
+    }
+
     private ImageView menuCustom;
     private ImageView menuMore;
     private ViewGroup menuLayout;
@@ -58,6 +71,8 @@ public class NavigationBar extends LinearLayout implements View.OnClickListener 
             backIcon.setOnClickListener(this);
             menuCustom.setOnClickListener(this);
             menuMore.setOnClickListener(this);
+            menuMore.setVisibility(GONE);
+            menuCustom.setVisibility(GONE);
         }
     }
 
