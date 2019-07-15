@@ -41,4 +41,5 @@
     <color name="whiteTextColor">#ededed</color>
     <color name="whiteHintTextColor">#eaeaea</color>
     <color name="highlightTextColor">#54a8f7</color>
+    <color name="navTextColor">#00000000</color>
 </resources>

@@ -6,13 +6,25 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
+
 import androidx.annotation.NonNull;
+
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 /**
  * Created by fred on 2017/1/26.
@@ -62,7 +74,7 @@ public class AndroidTools {
     public static void copyToClipBoard(@NonNull Context context, String text) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clipData = ClipData.newPlainText(null, text);
-        if (clipboardManager!=null){
+        if (clipboardManager != null) {
             clipboardManager.setPrimaryClip(clipData);
         }
     }
@@ -117,4 +129,73 @@ public class AndroidTools {
                 context.getFilesDir().getAbsolutePath();
         return new File(cachePath);
     }
+
+    public static File getDBDir(Context context, String fileName) {
+        String cachePath =
+                context.getDatabasePath(fileName).getAbsolutePath();
+        return new File(cachePath);
+    }
+
+
+    public static void unzipSingleToFile(File file, File outFile) {
+        try {
+            ZipFile zf = new ZipFile(file);
+            BufferedInputStream bi;
+            Enumeration e = zf.entries();
+            while (e.hasMoreElements()) {
+                ZipEntry ze2 = (ZipEntry) e.nextElement();
+                String entryName = ze2.getName();
+                String path = outFile.getAbsolutePath();
+                if (!ze2.isDirectory()) {
+                    System.out.println("正在创建解压文件 - " + entryName);
+                    String fileDir = path.substring(0, path.lastIndexOf("/"));
+                    File fileDirFile = new File(fileDir);
+                    if (!fileDirFile.exists()) {
+                        fileDirFile.mkdirs();
+                    }
+                    BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(outFile));
+                    bi = new BufferedInputStream(zf.getInputStream(ze2));
+                    byte[] readContent = new byte[1024];
+                    int readCount = bi.read(readContent);
+                    while (readCount != -1) {
+                        bos.write(readContent, 0, readCount);
+                        readCount = bi.read(readContent);
+                    }
+                    bos.close();
+                }
+            }
+            zf.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void unzipSingleToFile(InputStream in, File outFile) {
+        try  {
+            ZipInputStream zp = new ZipInputStream(in);
+            ZipEntry ze;
+            while ((ze = zp.getNextEntry()) != null) {
+                if (!ze.isDirectory()) {
+                    if (outFile.exists()) {
+                        outFile.delete();
+                    }
+                    int pos;
+                    final int BUFFER_SIZE = 4096;
+                    byte[] buf = new byte[BUFFER_SIZE];
+                    try (OutputStream bos = new FileOutputStream(outFile);) {
+                        while ((pos = zp.read(buf, 0, BUFFER_SIZE)) > 0) {
+                            bos.write(buf, 0, pos);
+                        }
+                        bos.flush();
+                    } catch (Exception e) {
+
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

@@ -23,7 +23,7 @@ public class RegexHelper {
 
     public static String maskPhone(String str) {
         if (isEmpty(str)) return null;
-        if (str.length()!=11)return str;
+        if (str.length() != 11) return str;
         return str.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
     }
 
@@ -265,5 +265,37 @@ public class RegexHelper {
         return head + s.replaceAll("(零.)*零元", "元")
                 .replaceAll("(零.)+", "零")
                 .replaceAll("^整$", "零元整");
+    }
+
+    /**
+     * 所有为空
+     *
+     * @param needle
+     * @return
+     */
+    public static boolean isAnyEmpty(String... needle) {
+        if (needle == null) return true;
+        for (int i = 0; i < needle.length; i++) {
+            if (!RegexHelper.isEmpty(needle[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 其中一个为空
+     *
+     * @param needle
+     * @return
+     */
+    public static boolean isOneEmpty(String... needle) {
+        if (needle == null) return true;
+        for (int i = 0; i < needle.length; i++) {
+            if (RegexHelper.isEmpty(needle[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 }
