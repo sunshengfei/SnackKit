@@ -28,6 +28,10 @@ public class Loger {
         e(tag, null, msg, null);
     }
 
+    public static void e(String msg) {
+        e("TT_TT", null, msg, null);
+    }
+
     public static void e(String tag, String msg, Object... args) {
         msg = args == null ? msg : String.format(msg, args);
         e(tag, null, msg, null);
@@ -39,6 +43,10 @@ public class Loger {
 
     public static void e(String tag, String msg, Throwable tr) {
         e(tag, null, msg, tr);
+    }
+
+    public static void e(String tag, Throwable tr) {
+        e(tag, null, null, tr);
     }
 
     public static void e(String tag, String className, String msg, Throwable tr) {

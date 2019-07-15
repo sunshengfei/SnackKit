@@ -224,22 +224,22 @@ public class NetSuit {
             } else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
                 netInfo.netType = "MOBILE " + networkInfo.getSubtypeName();
                 netInfo.apn = networkInfo.getExtraInfo();
-                try {
-                    netInfo.mac = getMac(null);
-                    for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                        NetworkInterface intf = en.nextElement();
-                        for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
-                            InetAddress inetAddress = enumIpAddr.nextElement();
-                            if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
-                                netInfo.localIp = inetAddress.getHostAddress();
-                                netInfo.mac = bytesToString(intf.getHardwareAddress());
-                                break;
-                            }
+                netInfo.mac = getMac(null);
+            }
+            try {
+                for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                    NetworkInterface intf = en.nextElement();
+                    for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
+                        InetAddress inetAddress = enumIpAddr.nextElement();
+                        if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                            netInfo.localIp = inetAddress.getHostAddress();
+                            netInfo.mac = bytesToString(intf.getHardwareAddress());
+                            break;
                         }
                     }
-                } catch (SocketException e) {
-                    e.printStackTrace();
                 }
+            } catch (SocketException e) {
+                e.printStackTrace();
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
