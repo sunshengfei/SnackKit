@@ -11,7 +11,6 @@ android {
         multiDexEnabled true
         ndk {
             moduleName "libdes,libgnustl_shared" //设置库(so)文件名称//,libjcore115
-            abiFilters "armeabi"
             abiFilters "armeabi-v7a"
             abiFilters "arm64-v8a"
             abiFilters "x86_64"
@@ -51,25 +50,25 @@ android {
     }
 }
 
-
-task ndkBuild(type: Exec) {
-    // Read ndk path from local.properties file
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    def ndkDir = properties.getProperty('ndk.dir')
-
-    if (ndkDir == null) {
-        ndkDir = ''
-
-    } else {
-        ndkDir = ndkDir + '/'
-    }
-    commandLine "$ndkDir" + "ndk-build", '-C', file('src/main/cpp').absolutePath
-}
-
-tasks.withType(JavaCompile) {
-    compileTask -> compileTask.dependsOn ndkBuild
-}
+//
+//task ndkBuild(type: Exec) {
+//    // Read ndk path from local.properties file
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    def ndkDir = properties.getProperty('ndk.dir')
+//
+//    if (ndkDir == null) {
+//        ndkDir = ''
+//
+//    } else {
+//        ndkDir = ndkDir + '/'
+//    }
+//    commandLine "$ndkDir" + "ndk-build", '-C', file('src/main/cpp').absolutePath
+//}
+//
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn ndkBuild
+//}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
