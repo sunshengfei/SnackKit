@@ -31,6 +31,8 @@ public class StringGsonFactory extends Converter.Factory {
                 return gsonFactory.responseBodyConverter(type, annotations, retrofit);
             } else if (ResponseType.TEXT.equals(value)) {
                 return stringFactory.responseBodyConverter(type, annotations, retrofit);
+            } else if (ResponseType.XML.equals(value)) {
+                return stringFactory.responseBodyConverter(type, annotations, retrofit);
             }
         }
         return gsonFactory.responseBodyConverter(type, annotations, retrofit);

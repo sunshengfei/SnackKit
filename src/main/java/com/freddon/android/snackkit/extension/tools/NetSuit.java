@@ -40,6 +40,7 @@ public class NetSuit {
         public String vpn;
         public String proxy;
         public List<String> localIpv6s;
+        public String cellarName;
 
         public String getIpv6() {
             if (localIpv6s != null) {
@@ -143,10 +144,10 @@ public class NetSuit {
      * @param context
      * @return
      */
-    public NetInfo netInfo(Context context) {
+    public static NetInfo netInfo(Context context, NetInfo netInfo) {
         ConnectivityManager connecty = ((ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE));
-        NetInfo netInfo = new NetInfo();
+        if (netInfo == null) netInfo = new NetInfo();
         if (connecty != null) {
             NetworkInfo info = connecty.getActiveNetworkInfo();
             if (info != null) {
@@ -158,6 +159,7 @@ public class NetSuit {
                     switch (info.getSubtype()) {
                         case TelephonyManager.NETWORK_TYPE_LTE:    //api<11 : replace by 13
                             //"4G";
+                            netInfo.cellarName = "4G";
                             break;
                         case TelephonyManager.NETWORK_TYPE_GPRS:
                         case TelephonyManager.NETWORK_TYPE_EDGE:
@@ -165,6 +167,7 @@ public class NetSuit {
                         case TelephonyManager.NETWORK_TYPE_1xRTT:
                         case TelephonyManager.NETWORK_TYPE_IDEN://api<8 : replace by 11
                             //2G
+                            netInfo.cellarName = "2G";
                             break;
                         case TelephonyManager.NETWORK_TYPE_UMTS:
                         case TelephonyManager.NETWORK_TYPE_EVDO_0:
@@ -176,12 +179,14 @@ public class NetSuit {
                         case TelephonyManager.NETWORK_TYPE_EHRPD:  //api<11 : replace by 12
                         case TelephonyManager.NETWORK_TYPE_HSPAP:  //api<13 : replace by 15
                             //"3G";
+                            netInfo.cellarName = "3G";
                             break;
                         default:
                             // http://baike.baidu.com/item/TD-SCDMA 中国移动 联通 电信 三种3G制式
                             if ("TD-SCDMA".equalsIgnoreCase(info.getSubtypeName()) || "WCDMA".equalsIgnoreCase(info.getSubtypeName()) ||
                                     "CDMA2000".equalsIgnoreCase(info.getSubtypeName())) {
                                 //"3G";
+                                netInfo.cellarName = "3G";
                             }
                             break;
 
