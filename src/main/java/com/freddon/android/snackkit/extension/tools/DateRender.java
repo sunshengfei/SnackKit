@@ -191,4 +191,22 @@ public class DateRender {
         return simpleDateFormatThreadLocal.get();
     }
 
+    public static String getTimeDifference(long time) {
+        long curTime = System.currentTimeMillis();
+        long differnceTime = curTime - time;
+        long second = differnceTime / 1000;
+        long minute = second / 60;
+        long hour = minute / 60;
+        long day = hour / 24;
+        if (day > 0) {
+            return day + "天前";
+        }
+        if (hour > 0) {
+            return hour + "小时前";
+        }
+        if (minute > 0) {
+            return minute + "分钟前";
+        }
+        return "刚刚";
+    }
 }
