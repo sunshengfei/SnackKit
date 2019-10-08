@@ -222,6 +222,14 @@ public class RegexHelper {
         return false;
     }
 
+    public static <T> T isEmptyElse(T t, T defaultValue) {
+        return isEmpty(t) ? defaultValue : t;
+    }
+
+    public static <T> boolean isNotEmpty(T t) {
+        return !isEmpty(t);
+    }
+
 
     public static String reactiveAmountHans(String amountStr) {
         if (!RegexHelper.isNumber(amountStr)) return "请输入正确金额";
@@ -273,10 +281,20 @@ public class RegexHelper {
      * @param needle
      * @return
      */
-    public static boolean isAnyEmpty(String... needle) {
+    public static boolean isAnyEmpty(Object... needle) {
         if (needle == null) return true;
         for (int i = 0; i < needle.length; i++) {
             if (!RegexHelper.isEmpty(needle[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isAllNotEmpty(Object... needle) {
+        if (needle == null) return false;
+        for (int i = 0; i < needle.length; i++) {
+            if (RegexHelper.isEmpty(needle[i])) {
                 return false;
             }
         }
@@ -289,7 +307,7 @@ public class RegexHelper {
      * @param needle
      * @return
      */
-    public static boolean isOneEmpty(String... needle) {
+    public static boolean isOneEmpty(Object... needle) {
         if (needle == null) return true;
         for (int i = 0; i < needle.length; i++) {
             if (RegexHelper.isEmpty(needle[i])) {
@@ -297,5 +315,11 @@ public class RegexHelper {
             }
         }
         return false;
+    }
+
+    public static boolean isPort(String port) {
+        if (!isNumber(port)) return false;
+        int portInt = Integer.parseInt(port);
+        return portInt > 0 && portInt < 65536;
     }
 }

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:fitsSystemWindows="true"
-              android:orientation="vertical">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
     <com.freddon.android.snackkit.extension.widget.NaviBar
-            app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/navibar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:backIcon="@drawable/selector_click_nav_icon_return_white"
+            app:backIcon="@drawable/selector_click_nav_icon_return_black"
             app:isShowBack="true"
             app:isShowFilter="false"
+            app:titleColor="@color/defaultTextColor"
+            app:layout_constraintTop_toTopOf="parent"
             app:mode="normal"
             app:titleAlign="center"
-            app:titleStr=""/>
+            app:titleStr="" />
 
     <LinearLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-    </LinearLayout>
+            android:orientation="vertical"/>
 </LinearLayout>

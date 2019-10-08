@@ -154,6 +154,7 @@ public class NetSuit {
                 netInfo.apn = info.getExtraInfo();
                 if (info.getType() == ConnectivityManager.TYPE_WIFI) {
                     netInfo.netType = "WIFI";
+
                 } else if (info.getType() == ConnectivityManager.TYPE_MOBILE) {
                     netInfo.netType = "MOBILE " + info.getSubtypeName();
                     switch (info.getSubtype()) {
@@ -199,6 +200,29 @@ public class NetSuit {
         return netInfo;
     }
 
+    public static boolean isWifi5G(Context context) {
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (wifiManager==null)return false;
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        int freq = 0;
+        if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP) {
+            freq = wifiInfo.getFrequency();
+        } else {
+            String ssid = wifiInfo.getSSID();
+            if (ssid != null && ssid.length() > 2) {
+                String ssidTemp = ssid.substring(1, ssid.length() - 1);
+                List<ScanResult> scanResults = wifiManager.getScanResults();
+                for (ScanResult scanResult : scanResults) {
+                    if (scanResult.SSID.equals(ssidTemp)) {
+                        freq = scanResult.frequency;
+                        break;
+                    }
+                }
+            }
+        }
+        return freq > 4900 && freq < 5900;
+    }
+
     @SuppressLint("HardwareIds")
     public static NetInfo getNetInfo(Context context, NetInfo netInfo) {
         ConnectivityManager connecty = ((ConnectivityManager) context
@@ -207,60 +231,60 @@ public class NetSuit {
         NetworkInfo networkInfo = connecty.getActiveNetworkInfo();
         if (networkInfo == null) return netInfo;
         if (netInfo == null) netInfo = new NetInfo();
-        if (networkInfo != null) {
-            netInfo.proxy = getProxy(context);
-            netInfo.vpn = getVpnName();
-            netInfo.localIpv6s = getIpv6Addr();
-            if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                DhcpInfo dhcp = wifiManager.getDhcpInfo();
-                netInfo.netType = "WIFI";
-                netInfo.localIp = ipStringify(dhcp.ipAddress);
-                netInfo.netMask = ipStringify(dhcp.netmask);
-                netInfo.gateWay = ipStringify(dhcp.gateway);
-                netInfo.dns1 = ipStringify(dhcp.dns1);
-                netInfo.dns2 = ipStringify(dhcp.dns2);
-                netInfo.apn = networkInfo.getExtraInfo();//wifiInfo.getSSID();
-                netInfo.mac = getMac(wifiInfo);
-                netInfo.routerMac = wifiInfo.getBSSID();
-                netInfo.serverAddr = ipStringify(wifiInfo.getIpAddress());
-                netInfo.serverAddr = ipStringify(dhcp.serverAddress);
-            } else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-                netInfo.netType = "MOBILE " + networkInfo.getSubtypeName();
-                netInfo.apn = networkInfo.getExtraInfo();
-                netInfo.mac = getMac(null);
-            }
-            try {
-                for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
-                    NetworkInterface intf = en.nextElement();
-                    for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
-                        InetAddress inetAddress = enumIpAddr.nextElement();
-                        if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
-                            netInfo.localIp = inetAddress.getHostAddress();
-                            netInfo.mac = bytesToString(intf.getHardwareAddress());
-                            break;
-                        }
+        netInfo.proxy = getProxy(context);
+        netInfo.vpn = getVpnName();
+        netInfo.localIpv6s = getIpv6Addr();
+        if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            if (wifiManager == null) return netInfo;
+            boolean isWifi5G = isWifi5G(context);
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            DhcpInfo dhcp = wifiManager.getDhcpInfo();
+            netInfo.netType = "WIFI" +(isWifi5G?" (5G) ":"");
+            netInfo.localIp = ipStringify(dhcp.ipAddress);
+            netInfo.netMask = ipStringify(dhcp.netmask);
+            netInfo.gateWay = ipStringify(dhcp.gateway);
+            netInfo.dns1 = ipStringify(dhcp.dns1);
+            netInfo.dns2 = ipStringify(dhcp.dns2);
+            netInfo.apn = networkInfo.getExtraInfo();//wifiInfo.getSSID();
+            netInfo.mac = getMac(wifiInfo);
+            netInfo.routerMac = wifiInfo.getBSSID();
+            netInfo.serverAddr = ipStringify(wifiInfo.getIpAddress());
+            netInfo.serverAddr = ipStringify(dhcp.serverAddress);
+        } else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+            netInfo.netType = "MOBILE " + networkInfo.getSubtypeName();
+            netInfo.apn = networkInfo.getExtraInfo();
+            netInfo.mac = getMac(null);
+        }
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                        netInfo.localIp = inetAddress.getHostAddress();
+                        netInfo.mac = bytesToString(intf.getHardwareAddress());
+                        break;
                     }
                 }
-            } catch (SocketException e) {
-                e.printStackTrace();
             }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    LinkProperties prot = connecty.getLinkProperties(connecty.getActiveNetwork());
-                    List<InetAddress> dnses = prot.getDnsServers();
-                    for (int i = 0; dnses != null && i < dnses.size(); i++) {
-                        if (i == 0)
-                            netInfo.dns1 = dnses.get(0).getHostAddress();
-                        else if (i == 1)
-                            netInfo.dns2 = dnses.get(1).getHostAddress();
-                        else break;
-                    }
-                    List<RouteInfo> r = prot.getRoutes();
-                    if (r != null && r.size() > 0) {
-                        netInfo.gateWay = r.get(0).getGateway().getHostAddress();
-                    }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                LinkProperties prot = connecty.getLinkProperties(connecty.getActiveNetwork());
+                List<InetAddress> dnses = prot.getDnsServers();
+                for (int i = 0; dnses != null && i < dnses.size(); i++) {
+                    if (i == 0)
+                        netInfo.dns1 = dnses.get(0).getHostAddress();
+                    else if (i == 1)
+                        netInfo.dns2 = dnses.get(1).getHostAddress();
+                    else break;
+                }
+                List<RouteInfo> r = prot.getRoutes();
+                if (r != null && r.size() > 0) {
+                    netInfo.gateWay = r.get(0).getGateway().getHostAddress();
                 }
             }
         }

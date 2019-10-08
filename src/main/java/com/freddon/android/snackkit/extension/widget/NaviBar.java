@@ -461,6 +461,10 @@ public class NaviBar extends LinearLayout {
         _backView.setVisibility(INVISIBLE);
     }
 
+    public void zeroBack() {
+        _backView.setVisibility(GONE);
+    }
+
     /**
      * 设置菜单图标
      *

@@ -48,7 +48,7 @@ public class PermissionUtil {
 
     }
 
-    public boolean isPhoneSateAccess(@NonNull Context context) {
+    public boolean isPhoneStateAccess(@NonNull Context context) {
         PackageManager pkgManager = context.getPackageManager();
         // read phone state用于获取 imei 设备信息
         return pkgManager.checkPermission(Manifest.permission.READ_PHONE_STATE, context.getPackageName()) == PackageManager.PERMISSION_GRANTED;
