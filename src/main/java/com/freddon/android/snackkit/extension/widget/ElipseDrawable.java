@@ -18,7 +18,10 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.os.Build;
 import android.widget.ImageView.ScaleType;
+
+import com.freddon.android.snackkit.R;
 
 public class ElipseDrawable extends Drawable {
     public static final int DEFAULT_BORDER_COLOR = Color.BLACK;
@@ -71,6 +74,13 @@ public class ElipseDrawable extends Drawable {
 
     public static Drawable fromDrawable(Drawable drawable) {
         if (drawable != null) {
+
+//            if (drawable!=null){
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    drawable.setTint(get().getColor(R.color.colorAccent));
+//                }
+//            }
+
             if (drawable instanceof ElipseDrawable) {
                 // just return if it's already a ElipseDrawable
                 return drawable;

@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.util.AttributeSet;
 
 import com.freddon.android.snackkit.R;
@@ -141,6 +142,11 @@ public class ElipseImageView extends androidx.appcompat.widget.AppCompatImageVie
     @Override
     public void setImageDrawable(Drawable drawable) {
         mResource = 0;
+        if (drawable != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                drawable.setTintList(getImageTintList());
+            }
+        }
         mDrawable = ElipseDrawable.fromDrawable(drawable);
         updateDrawableAttrs();
         super.setImageDrawable(mDrawable);
