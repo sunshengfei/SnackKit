@@ -74,13 +74,6 @@ public class ElipseDrawable extends Drawable {
 
     public static Drawable fromDrawable(Drawable drawable) {
         if (drawable != null) {
-
-//            if (drawable!=null){
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                    drawable.setTint(get().getColor(R.color.colorAccent));
-//                }
-//            }
-
             if (drawable instanceof ElipseDrawable) {
                 // just return if it's already a ElipseDrawable
                 return drawable;
@@ -98,8 +91,7 @@ public class ElipseDrawable extends Drawable {
             } else if (drawable instanceof ShapeDrawable) {
                 ShapeDrawable shapeDrawable = (ShapeDrawable) drawable;
                 return shapeDrawable;
-            }
-            else if (drawable instanceof StateListDrawable) {
+            } else if (drawable instanceof StateListDrawable) {
                 StateListDrawable shapeDrawable = (StateListDrawable) drawable;
                 return shapeDrawable;
             }

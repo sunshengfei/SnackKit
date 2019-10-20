@@ -204,12 +204,13 @@ public class ElipseImageView extends androidx.appcompat.widget.AppCompatImageVie
     }
 
     private void updateBackgroundDrawableAttrs(boolean convert) {
-        if (mMutateBackground) {
-            if (convert) {
-                mBackgroundDrawable = ElipseDrawable.fromDrawable(mBackgroundDrawable);
-            }
-            updateAttrs(mBackgroundDrawable);
+//        if (mMutateBackground) {
+//
+//        }
+        if (convert) {
+            mBackgroundDrawable = ElipseDrawable.fromDrawable(mBackgroundDrawable);
         }
+        updateAttrs(mBackgroundDrawable);
     }
 
     private void updateAttrs(Drawable drawable) {

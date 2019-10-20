@@ -6,6 +6,25 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/navAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:layout_behavior="com.sagocloud.ntworker.behavior.AppBarLayoutBehavior">
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/p_base_toolbar"
+                    android:layout_width="match_parent"
+                    app:navigationIcon="?attr/homeAsUpIndicator"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorAccent"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    app:title="">
+            </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.freddon.android.snackkit.extension.widget.NaviBar
             android:id="@+id/navibar"
             android:layout_width="match_parent"
