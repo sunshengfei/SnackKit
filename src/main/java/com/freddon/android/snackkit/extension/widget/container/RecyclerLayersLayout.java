@@ -1,8 +1,11 @@
 package com.freddon.android.snackkit.extension.widget.container;
 
 import android.content.Context;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -46,7 +49,7 @@ public class RecyclerLayersLayout extends LayersLayout {
         setCustomerView(refreshLayout);
         rvDataView = refreshLayout.findViewById(R.id.rv_data_view);
         rvDataView.setLayoutManager(new LinearLayoutManager(context));
-//        rvDataView.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
+//        rvDataView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
         refreshLayout.setRefreshHeader(new ClassicsHeader(context));
         refreshLayout.setRefreshFooter(new ClassicsFooter(context));
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
@@ -68,8 +71,8 @@ public class RecyclerLayersLayout extends LayersLayout {
         });
     }
 
-    public void disableFreshAndLoad(boolean isForbidden){
-        if (refreshLayout!=null){
+    public void disableFreshAndLoad(boolean isForbidden) {
+        if (refreshLayout != null) {
             refreshLayout.setEnableLoadMore(!isForbidden);
             refreshLayout.setEnableRefresh(!isForbidden);
         }

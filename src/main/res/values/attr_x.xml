@@ -49,4 +49,21 @@
 
   </declare-styleable>
 
+  <declare-styleable name="CirclePlayBar">
+    <attr name="state" format="integer" >
+      <enum name="stop" value="0"/>
+      <enum name="release" value="1"/>
+      <enum name="pause" value="2"/>
+      <enum name="loading" value="4"/>
+      <enum name="play" value="8"/>
+    </attr>
+    <attr name="cpb_progress" format="integer" />
+    <attr name="cpb_progress_radius" format="float" />
+    <attr name="cpb_progressbar_color" format="color" />
+    <attr name="cpb_progress_loading" format="integer" />
+    <attr name="cpb_background_progressbar_color" format="color" />
+    <attr name="cpb_progressbar_width" format="dimension" />
+    <attr name="cpb_background_progressbar_width" format="dimension" />
+  </declare-styleable>
+
 </resources>

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class FileUtil {
 
     /**
      * 创建目录
-     * 
+     *
      * @param path 目录路径
      * @return 创建成功：true，创建失败：false
      */
@@ -41,7 +42,7 @@ public class FileUtil {
 
     /**
      * 创建文件
-     * 
+     *
      * @param path 文件全路径
      * @param text 若不为空，则在新创建的文件中加入这些字符，这样就是文本文件了
      * @throws IOException
@@ -61,7 +62,7 @@ public class FileUtil {
 
     /**
      * 复写文件，新内容会替代旧内容
-     * 
+     *
      * @param file 要写入到的文件（受体）
      * @param text 要被写入的内容（想不起了受体对应的是什么体了，知道的修改下）
      * @throws IOException
@@ -74,7 +75,7 @@ public class FileUtil {
 
     /**
      * 复写文件，新内容会替代旧内容
-     * 
+     *
      * @param path 要写入的文件的路径
      * @param text 要写入的内容
      * @throws IOException
@@ -86,7 +87,7 @@ public class FileUtil {
 
     /**
      * 附加文本内容到指定文件
-     * 
+     *
      * @param file 要附加内容的文件
      * @param text 要附加的文本内容
      * @throws IOException
@@ -99,7 +100,7 @@ public class FileUtil {
 
     /**
      * 附加文本内容到指定文件
-     * 
+     *
      * @param path 要附加内容的文件的路径
      * @param text 要附加的文本内容
      * @throws IOException
@@ -111,7 +112,7 @@ public class FileUtil {
 
     /**
      * 删除文件
-     * 
+     *
      * @param path 要删除文件的路径
      * @return 删除成功：true，删除失败：false
      */
@@ -122,7 +123,7 @@ public class FileUtil {
 
     /**
      * 删除指定路径的文件夹和所有子文件（夹）
-     * 
+     *
      * @param path 要删除的文件夹的路径
      * @return 删除成功：true，删除失败：false
      */
@@ -134,7 +135,7 @@ public class FileUtil {
 
     /**
      * 删除指定路径下的所有的子文件（夹）
-     * 
+     *
      * @param path 指定的的文件夹的路径
      */
     public static void deleteSubFiles(String path) {
@@ -165,13 +166,13 @@ public class FileUtil {
 
     /**
      * 拷贝文件
-     * 
-     * @param source 起始目录
-     * @param dest 目标目录
+     *
+     * @param source    起始目录
+     * @param dest      目标目录
      * @param hProgress 进度的表现，你可以传入一个handler通过handleMessage把进度展示在程序中
-     *            共有三种消息：FileUtils.WHAT_COPY_START、FileUtils.WHAT_COPY_PROGRESS、
-     *            FileUtils.WHAT_COPY_FINISH,每个消息的arg1为已拷贝长度，arg2为总长度，当结
-     *            束时全部重置为0
+     *                  共有三种消息：FileUtils.WHAT_COPY_START、FileUtils.WHAT_COPY_PROGRESS、
+     *                  FileUtils.WHAT_COPY_FINISH,每个消息的arg1为已拷贝长度，arg2为总长度，当结
+     *                  束时全部重置为0
      * @throws IOException
      */
     public static void copyFile(String source, String dest, Handler hProgress)
@@ -219,9 +220,9 @@ public class FileUtil {
 
     /**
      * 拷贝文件夹，包括其包含的所有文件（夹）和所有子文夹下的文件（夹）如此递归，直到完成
-     * 
+     *
      * @param source 起始文件夹地址
-     * @param dest 目标文件夹目录
+     * @param dest   目标文件夹目录
      * @throws IOException
      */
     public static void copyFolder(String source, String dest)
@@ -260,13 +261,13 @@ public class FileUtil {
 
     /**
      * 移动文件
-     * 
-     * @param source 起始目录
-     * @param dest 目标目录
+     *
+     * @param source    起始目录
+     * @param dest      目标目录
      * @param hProgress 进度的表现，你可以传入一个handler通过handleMessage把进度展示在程序中
-     *            共有三种消息：FileUtils.WHAT_COPY_START、FileUtils.WHAT_COPY_PROGRESS、
-     *            FileUtils.WHAT_COPY_FINISH,每个消息的arg1为已拷贝长度，arg2为总长度，当结
-     *            束时全部重置为0
+     *                  共有三种消息：FileUtils.WHAT_COPY_START、FileUtils.WHAT_COPY_PROGRESS、
+     *                  FileUtils.WHAT_COPY_FINISH,每个消息的arg1为已拷贝长度，arg2为总长度，当结
+     *                  束时全部重置为0
      * @throws IOException
      */
     public static void moveFile(String source, String dest, Handler hProgress)
@@ -285,7 +286,7 @@ public class FileUtil {
 
     /**
      * 逐行读取文本文件
-     * 
+     *
      * @param file 文件
      * @return
      * @throws IOException
@@ -303,9 +304,14 @@ public class FileUtil {
         return fileText;
     }
 
+    public static String readFileAsString(File file) throws IOException {
+        return inputStream2String(new FileInputStream(file), Charset.forName("UTF-8").name());
+    }
+
+
     /**
      * 将字符串数组转化为一个字符串，原始数组中每个字符串单独占一行
-     * 
+     *
      * @param list
      * @return
      */
@@ -319,7 +325,7 @@ public class FileUtil {
 
     /**
      * 逐行读取文本文件
-     * 
+     *
      * @param path 文件地址
      * @return
      * @throws IOException
@@ -331,7 +337,7 @@ public class FileUtil {
 
     /**
      * 获取目录大小
-     * 
+     *
      * @param path
      * @return
      */
@@ -341,7 +347,7 @@ public class FileUtil {
 
     /**
      * 获取目录大小（包含所有子文件（夹））
-     * 
+     *
      * @param dir
      * @return
      */
@@ -367,7 +373,7 @@ public class FileUtil {
 
     /**
      * 判断文件是否存在
-     * 
+     *
      * @param filepath
      * @return boolean
      */
@@ -414,7 +420,7 @@ public class FileUtil {
 
     /**
      * 从安装包assets中复制文件到指定路径
-     * 
+     *
      * @param context
      * @param fileName 待复制的文件名
      * @param destPath 目标路径
