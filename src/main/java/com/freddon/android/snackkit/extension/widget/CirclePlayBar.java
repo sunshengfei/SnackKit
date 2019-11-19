@@ -195,8 +195,7 @@ public class CirclePlayBar extends View {
             rectFLoading.right = rectF.right - backgroundStrokeWidth * 2.0F;
             rectFLoading.bottom = rectF.bottom - backgroundStrokeWidth * 2.0F;
             float loadingweepAngle = loadingProgress * 360F / 100F;
-            if (loadingweepAngle != 0)
-                canvas.drawArc(rectFLoading, START_ANGLE, loadingweepAngle, true, LoadingPaint);
+            canvas.drawArc(rectFLoading, START_ANGLE, loadingweepAngle, true, LoadingPaint);
         } else if (state == STATE_STOP) {
             rectIcon.left = centerX - cW;
             rectIcon.top = centerY - cW;
@@ -287,8 +286,20 @@ public class CirclePlayBar extends View {
         invalidate();
     }
 
+    public void setMaskColor(int color) {
+        this.color = color;
+        iconPaint.setColor(color);
+        foregroundPaint.setColor(color);
+        LoadingPaint.setColor(color);
+        this.backgroundColor = color;
+        backgroundPaint.setColor(backgroundColor);
+        invalidate();
+    }
+
     public void setColor(int color) {
         this.color = color;
+        iconPaint.setColor(color);
+        LoadingPaint.setColor(color);
         foregroundPaint.setColor(color);
         invalidate();
         requestLayout();

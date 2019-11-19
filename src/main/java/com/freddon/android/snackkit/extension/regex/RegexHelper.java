@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by fred on 2016/11/1.
@@ -321,5 +323,15 @@ public class RegexHelper {
         if (!isNumber(port)) return false;
         int portInt = Integer.parseInt(port);
         return portInt > 0 && portInt < 65536;
+    }
+
+    public static boolean isMatch(String result, String param) {
+        try {
+            Pattern pattern = Pattern.compile(param);
+            Matcher matcher = pattern.matcher(result);
+            return matcher.matches();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.freddon.android.snackkit.extension.tools;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Build;
@@ -21,7 +22,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Field;
+import java.util.Dictionary;
 import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
@@ -83,13 +87,31 @@ public class AndroidTools {
      * 获取剪贴板最新内容
      *
      * @param context
-     * @param text
      * @return
      */
-    public static CharSequence postFromClipBoard(Context context, String text) {
+    public static Hashtable<Long, CharSequence> postFromClipBoard(Context context) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        if (clipboardManager != null || clipboardManager.hasPrimaryClip()) {
-            return clipboardManager.getPrimaryClip().getItemAt(0).getText();
+        if (clipboardManager != null && clipboardManager.hasPrimaryClip()) {
+            ClipData primary = clipboardManager.getPrimaryClip();
+            Hashtable<Long, CharSequence> hashtable = new Hashtable<>();
+            long timeStamp = 0;
+            if (primary != null) {
+                ClipData.Item item = primary.getItemAt(0);
+                ClipDescription clipDescription = primary.getDescription();
+                Class<?> f = clipDescription.getClass();
+                Field field = null;
+                try {
+                    field = f.getDeclaredField("mTimeStamp");
+                    field.setAccessible(true);
+                    timeStamp = (long) field.get(clipDescription);
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                hashtable.put(timeStamp, item.getText());
+                return hashtable;
+            }
         }
         return null;
     }
@@ -171,7 +193,7 @@ public class AndroidTools {
     }
 
     public static void unzipSingleToFile(InputStream in, File outFile) {
-        try  {
+        try {
             ZipInputStream zp = new ZipInputStream(in);
             ZipEntry ze;
             while ((ze = zp.getNextEntry()) != null) {
