@@ -174,16 +174,16 @@ public class CirclePlayBar extends View {
 //            rectIconDivider.right = centerX + cW / 6;
 //            rectIconDivider.bottom = centerY + cW + 3;
             //2cw / 3
-            float borderWidth = iconPaint.getStrokeWidth();
+//            float borderWidth = iconPaint.getStrokeWidth();
             rectIcon.left = centerX - cW;
             rectIcon.top = centerY - cW;
-            rectIcon.right = centerX - cW / 3 - borderWidth / 2;
+            rectIcon.right = centerX;// - cW / 3 - borderWidth / 2;
             rectIcon.bottom = centerY + cW;
 
             rectIconRight.top = centerY - cW;
             rectIconRight.right = centerX + cW;
             rectIconRight.bottom = centerY + cW;
-            rectIconRight.left = centerX + cW / 3 + borderWidth / 2;
+            rectIconRight.left = centerX;// + cW / 3 + borderWidth / 2;
 
 
             canvas.drawRect(rectIcon, iconPaint);
