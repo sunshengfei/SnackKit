@@ -1,19 +1,29 @@
 package com.freddon.android.snackkit.extension.tools;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Environment;
+import android.os.PowerManager;
+import android.provider.Settings;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
-import android.view.View;
-import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import com.freddon.android.snackkit.extension.regex.RegexHelper;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -23,18 +33,69 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
+
+import static android.provider.Settings.Secure.getString;
 
 /**
  * Created by fred on 2017/1/26.
  */
 
 public class AndroidTools {
+
+    public static boolean isOpened = false;
+
+    public static void flagScreenOn(@NonNull Window window) {
+        isOpened = true;
+        window.setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    public static void  flagScreenOff(@NonNull Window window) {
+        isOpened = true;
+        window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+
+    @SuppressLint({"InvalidWakeLockTag", "WakelockTimeout"})
+    public static PowerManager.WakeLock screenAwake(@NonNull Context context) {
+        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock wakeLock = null;
+        if (powerManager != null) {
+            wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                    "MyWakelockTag");
+            wakeLock.acquire();
+        }
+        return wakeLock;
+    }
+
+    @SuppressLint({"InvalidWakeLockTag", "WakelockTimeout"})
+    public static PowerManager.WakeLock screenHighAwake(@NonNull Context context) {
+        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock wakeLock = null;
+        if (powerManager != null) {
+            wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK,
+                    "HighLed");
+            wakeLock.acquire();
+        }
+        return wakeLock;
+    }
+
+    public static void screenAwakeRelease(PowerManager.WakeLock wakeLock) {
+        if (wakeLock != null) wakeLock.release();
+    }
+
+    public static String getAndroidId(Context context) {
+        if (context == null) {
+            return "";
+        }
+        String androidId = getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        return (RegexHelper.isEmpty(androidId) ? "" : androidId);
+    }
 
     /**
      * 隐藏虚拟底部导航栏
@@ -220,4 +281,42 @@ public class AndroidTools {
     }
 
 
+    public static List<ResolveInfo> getLauncherApps(@NonNull Context context) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> appsWithLauncher = context.getPackageManager().queryIntentActivities(intent, 0);
+        return appsWithLauncher;
+    }
+
+
+    public static void openApp(@NonNull Context context, @NonNull String packageNameRaw) {
+        PackageInfo pi = null;
+        try {
+            PackageManager pm = context.getPackageManager();
+            pi = context.getPackageManager().getPackageInfo(packageNameRaw, 0);
+            Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
+            resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+            resolveIntent.setPackage(pi.packageName);
+            List<ResolveInfo> apps = pm.queryIntentActivities(resolveIntent, 0);
+            ResolveInfo ri = apps.iterator().next();
+            if (ri != null) {
+                String packageName = ri.activityInfo.packageName;
+                String className = ri.activityInfo.name;
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                ComponentName cn = new ComponentName(packageName, className);
+                intent.setComponent(cn);
+                context.startActivity(intent);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void backToSelf(Context context, Class activity) {
+        Intent intent = new Intent();
+        intent.setClass(context, activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
+    }
 }

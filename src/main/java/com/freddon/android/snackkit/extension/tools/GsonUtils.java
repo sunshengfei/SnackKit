@@ -14,6 +14,7 @@ import org.json.JSONException;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -68,6 +69,19 @@ public class GsonUtils {
             return gson.toJson(obj);
         } catch (Exception e) {
             return "";
+        }
+    }
+
+    public static String pretty(String string) {
+        try {
+            GsonBuilder builder = new GsonBuilder();
+            builder.setPrettyPrinting();
+            builder.enableComplexMapKeySerialization();
+            Gson gson = builder.create();
+            HashMap p = gson.fromJson(string, HashMap.class);
+            return gson.toJson(p);
+        } catch (Exception e) {
+            return string;
         }
     }
 
