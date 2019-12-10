@@ -55,7 +55,7 @@ public class AndroidTools {
         window.setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
-    public static void  flagScreenOff(@NonNull Window window) {
+    public static void flagScreenOff(@NonNull Window window) {
         isOpened = true;
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
@@ -170,7 +170,9 @@ public class AndroidTools {
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                hashtable.put(timeStamp, item.getText());
+                if (item != null) {
+                    hashtable.put(timeStamp, item.getText());
+                }
                 return hashtable;
             }
         }
