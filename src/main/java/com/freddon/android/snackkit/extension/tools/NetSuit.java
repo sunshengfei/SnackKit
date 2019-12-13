@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 
 import java.io.BufferedReader;
@@ -202,7 +203,7 @@ public class NetSuit {
 
     public static boolean isWifi5G(Context context) {
         WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if (wifiManager==null)return false;
+        if (wifiManager == null) return false;
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         int freq = 0;
         if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -240,7 +241,7 @@ public class NetSuit {
             boolean isWifi5G = isWifi5G(context);
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             DhcpInfo dhcp = wifiManager.getDhcpInfo();
-            netInfo.netType = "WIFI" +(isWifi5G?" (5G) ":"");
+            netInfo.netType = "WIFI" + (isWifi5G ? " (5G) " : "");
             netInfo.localIp = ipStringify(dhcp.ipAddress);
             netInfo.netMask = ipStringify(dhcp.netmask);
             netInfo.gateWay = ipStringify(dhcp.gateway);
@@ -284,7 +285,12 @@ public class NetSuit {
                 }
                 List<RouteInfo> r = prot.getRoutes();
                 if (r != null && r.size() > 0) {
-                    netInfo.gateWay = r.get(0).getGateway().getHostAddress();
+                    for (int i = 0; i < r.size(); i++) {
+                        RouteInfo g = r.get(i);
+                        if (g.isDefaultRoute()) {
+                            netInfo.gateWay = g.getGateway().getHostAddress();
+                        }
+                    }
                 }
             }
         }
