@@ -170,7 +170,7 @@ public class AndroidTools {
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                if (item != null) {
+                if (item != null && item.getText()!=null) {
                     hashtable.put(timeStamp, item.getText());
                 }
                 return hashtable;
