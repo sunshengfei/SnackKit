@@ -2,8 +2,12 @@ package com.freddon.android.snackkit.extension.regex;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import java.math.BigDecimal;
+import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,6 +17,92 @@ import java.util.regex.Pattern;
  */
 
 public class RegexHelper {
+
+
+    /**
+     * {{\w+}}
+     *
+     * @param str
+     * @return
+     */
+    public static String[] matchSlot(String str) {
+        if (isEmpty(str)) return new String[]{"1", null};
+        if (str.matches("^\\{\\{\\w+\\}\\}$")) {
+            String res = str.replaceAll("^\\{\\{(\\w+)\\}\\}$", "$1");
+            return new String[]{"0", res};
+        } else {
+            return new String[]{"1", null};
+        }
+    }
+
+    public static boolean isRadiusNumber(String str) {
+        if (isEmpty(str)) return false;
+        return str.matches("^0[x][\\da-fA-F]+$") || isSerialNumber(str);
+    }
+
+    public static boolean isHex(String str) {
+        if (isEmpty(str)) return false;
+        return str.matches("^0[x][\\da-fA-F]+$");
+    }
+
+    public static int radiusNumber2DexVal(String str) {
+        if (isRadiusNumber(str)) {
+            if (isSerialNumber(str)) {
+                try {
+                    return Integer.parseInt(str);
+                } catch (NumberFormatException e) {
+                    return 0;
+                }
+            }
+            try {
+                return Integer.parseInt(str.replaceAll("0x", ""), 16);
+            } catch (NumberFormatException e) {
+                return 0;
+            }
+        }
+        return 0;
+    }
+
+    public static String toHex(String numStr) {
+        if (isSerialNumber(numStr)) {
+            try {
+                int val = Integer.parseInt(numStr);
+                return "0x" + Integer.toString(val, 16);
+            } catch (NumberFormatException e) {
+            }
+        }
+        return numStr;
+    }
+
+
+    public interface SlotCaller {
+        String getString(String key);
+
+        boolean handled(String key);
+    }
+
+    public static boolean matchesSlot(@NonNull String str) {
+        if (isEmpty(str)) return false;
+        return str.matches(".*\\{\\{(\\w+)\\}\\}.*");
+    }
+
+    public static String matchesSlot(String str, @NonNull SlotCaller caller) {
+        if (isEmpty(str)) return str;
+        if (!matchesSlot(str)) return str;
+        Pattern pattern = Pattern.compile("\\{\\{(\\w+)\\}\\}");
+        Matcher matcher = pattern.matcher(str);
+        String newStr = str;
+        while (matcher.find()) {
+            String needle = matcher.group(0);
+            String key = needle.replaceAll("^\\{\\{(\\w+)\\}\\}$", "$1");
+            if (caller.handled(key)) {
+                while (newStr.contains(needle)) {
+                    newStr = newStr.replace(needle, caller.getString(key));
+                }
+            }
+        }
+        return newStr;
+    }
 
 
     public static String replaceSpace(String str) {
@@ -196,6 +286,13 @@ public class RegexHelper {
     }
 
 
+    public static boolean isNO(String str) {
+        if (isEmpty(str)) {
+            return false;
+        }
+        return str.matches("^\\-?[1-9]\\d*$");
+    }
+
     /**
      * 判断空
      *
@@ -330,6 +427,15 @@ public class RegexHelper {
             Pattern pattern = Pattern.compile(param);
             Matcher matcher = pattern.matcher(result);
             return matcher.matches();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isURL(String url) {
+        try {
+            new URL(url);
+            return true;
         } catch (Exception e) {
             return false;
         }

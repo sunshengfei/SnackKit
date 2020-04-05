@@ -23,6 +23,6 @@ class StringRequestBodyConverter implements Converter<String, RequestBody> {
         Writer writer = new OutputStreamWriter(buffer.outputStream(), UTF_8);
         writer.write(value);
         writer.close();
-        return RequestBody.create(MEDIA_TYPE, buffer.readByteString());
+        return RequestBody.create(buffer.readByteString(), MEDIA_TYPE);
     }
 }

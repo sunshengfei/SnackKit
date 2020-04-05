@@ -1,8 +1,6 @@
 package com.freddon.android.snackkit.extension.tools;
 
 
-import androidx.annotation.NonNull;
-
 import com.freddon.android.snackkit.log.Loger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,7 +13,6 @@ import org.json.JSONException;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by fred on 2016/11/7.

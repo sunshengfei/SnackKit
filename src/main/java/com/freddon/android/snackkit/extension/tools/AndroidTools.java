@@ -167,10 +167,11 @@ public class AndroidTools {
                     timeStamp = (long) field.get(clipDescription);
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
+                    timeStamp = System.currentTimeMillis()/20000;
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                if (item != null && item.getText()!=null) {
+                if (item != null && item.getText() != null) {
                     hashtable.put(timeStamp, item.getText());
                 }
                 return hashtable;
@@ -306,6 +307,7 @@ public class AndroidTools {
                 String className = ri.activityInfo.name;
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ComponentName cn = new ComponentName(packageName, className);
                 intent.setComponent(cn);
                 context.startActivity(intent);
@@ -319,6 +321,7 @@ public class AndroidTools {
         Intent intent = new Intent();
         intent.setClass(context, activity);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 }

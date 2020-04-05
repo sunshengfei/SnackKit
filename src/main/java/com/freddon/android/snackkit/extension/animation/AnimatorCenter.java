@@ -19,7 +19,7 @@ public class AnimatorCenter {
 
     public static final int NORMAL_SPAN = 400;
 
-    public static Animator rotateAnimator(View v, float fromDegree, float toDegree, long duration) {
+    public static ObjectAnimator rotateAnimator(View v, float fromDegree, float toDegree, long duration) {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(v, "rotation", fromDegree, toDegree);
         objectAnimator.setDuration(duration);
         return objectAnimator;
@@ -93,12 +93,16 @@ public class AnimatorCenter {
     }
 
 
+    public static void shake(@NonNull View view) {
+        shake(view, 5);
+    }
+
     /**
      * 重复5次结束
      *
      * @param view
      */
-    public static void shake(@NonNull View view) {
+    public static void shake(@NonNull View view, int count) {
         if (view == null) return;
 //        view.clearAnimation();
         final AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -109,12 +113,12 @@ public class AnimatorCenter {
         objectAnimator.setInterpolator(new AccelerateInterpolator());
         objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
         //在100毫秒内左右5趟
-        objectAnimator.setRepeatCount(5);
+        objectAnimator.setRepeatCount(count);
         //最后归位
         ObjectAnimator objectAnimatorEnd = ObjectAnimator.ofFloat(view, "translationX", view.getTranslationX(), 0);
-        objectAnimatorEnd.setDuration(10);
+        objectAnimatorEnd.setDuration(300);
         //延迟5秒执行
-        set.setStartDelay(5000);
+        set.setStartDelay((count - 1) * 1000);
         //序列动画 按顺序执行
         set.playSequentially(objectAnimator, objectAnimatorEnd);
         objectAnimatorEnd.addListener(new Animator.AnimatorListener() {

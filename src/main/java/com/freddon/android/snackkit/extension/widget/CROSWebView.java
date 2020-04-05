@@ -3,6 +3,7 @@ package com.freddon.android.snackkit.extension.widget;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
@@ -17,18 +18,24 @@ import android.webkit.WebViewClient;
 
 public class CROSWebView extends WebView {
     public CROSWebView(Context context) {
-        super(context);
+        super(getFixedContext(context));
         init();
     }
 
     public CROSWebView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        super(getFixedContext(context), attrs);
         init();
     }
 
     public CROSWebView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(getFixedContext(context), attrs, defStyleAttr);
         init();
+    }
+
+    public static Context getFixedContext(Context context) {
+        if (Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT < 23) // Android Lollipop 5.0 & 5.1
+            return context.createConfigurationContext(new Configuration());
+        return context;
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -70,4 +77,6 @@ public class CROSWebView extends WebView {
             webSetting.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
     }
+
+
 }
