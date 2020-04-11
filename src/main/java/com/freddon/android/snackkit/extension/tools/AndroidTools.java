@@ -155,7 +155,7 @@ public class AndroidTools {
         if (clipboardManager != null && clipboardManager.hasPrimaryClip()) {
             ClipData primary = clipboardManager.getPrimaryClip();
             Hashtable<Long, CharSequence> hashtable = new Hashtable<>();
-            long timeStamp = 0;
+            long timeStamp = System.currentTimeMillis();
             if (primary != null) {
                 ClipData.Item item = primary.getItemAt(0);
                 ClipDescription clipDescription = primary.getDescription();
@@ -167,7 +167,6 @@ public class AndroidTools {
                     timeStamp = (long) field.get(clipDescription);
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
-                    timeStamp = System.currentTimeMillis()/20000;
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

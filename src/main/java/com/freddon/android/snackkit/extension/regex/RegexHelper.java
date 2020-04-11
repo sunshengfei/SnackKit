@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,7 +36,7 @@ public class RegexHelper {
 
     public static boolean isRadiusNumber(String str) {
         if (isEmpty(str)) return false;
-        return str.matches("^0[x][\\da-fA-F]+$") || isSerialNumber(str);
+        return str.matches("^(0[x])?[\\da-fA-F]+$") || isSerialNumber(str);
     }
 
     public static boolean isHex(String str) {
@@ -72,6 +71,11 @@ public class RegexHelper {
             }
         }
         return numStr;
+    }
+
+    public static boolean isBlueToothMac(String str) {
+        if (isEmpty(str)) return false;
+        return str.matches("[0-9a-fA-F]{2}((-[0-9a-fA-F]{2}){5}|(:[0-9a-fA-F]{2}){5})");
     }
 
 
@@ -283,6 +287,13 @@ public class RegexHelper {
             return false;
         }
         return str.matches("^\\d+$");
+    }
+
+    public static boolean isNatureSerialNumber(String str) {
+        if (isEmpty(str)) {
+            return false;
+        }
+        return str.matches("^[1-9]\\d*$");
     }
 
 

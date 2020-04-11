@@ -1,6 +1,8 @@
 package com.freddon.android.snackkit.extension.tools;
 
 
+import androidx.annotation.NonNull;
+
 import com.freddon.android.snackkit.log.Loger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,9 +12,13 @@ import com.google.gson.TypeAdapter;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by fred on 2016/11/7.
@@ -75,8 +81,13 @@ public class GsonUtils {
             builder.setPrettyPrinting();
             builder.enableComplexMapKeySerialization();
             Gson gson = builder.create();
-            HashMap p = gson.fromJson(string, HashMap.class);
-            return gson.toJson(p);
+            if (string.startsWith("[")) {
+                List p = gson.fromJson(string, List.class);
+                return gson.toJson(p);
+            } else {
+                HashMap p = gson.fromJson(string, HashMap.class);
+                return gson.toJson(p);
+            }
         } catch (Exception e) {
             return string;
         }
