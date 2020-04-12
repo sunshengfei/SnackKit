@@ -150,11 +150,11 @@ public class AndroidTools {
      * @param context
      * @return
      */
-    public static Hashtable<Long, CharSequence> postFromClipBoard(Context context) {
+    public static Hashtable<Long, String> postFromClipBoard(Context context) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboardManager != null && clipboardManager.hasPrimaryClip()) {
             ClipData primary = clipboardManager.getPrimaryClip();
-            Hashtable<Long, CharSequence> hashtable = new Hashtable<>();
+            Hashtable<Long, String> hashtable = new Hashtable<>();
             long timeStamp = System.currentTimeMillis();
             if (primary != null) {
                 ClipData.Item item = primary.getItemAt(0);
@@ -171,7 +171,7 @@ public class AndroidTools {
                     e.printStackTrace();
                 }
                 if (item != null && item.getText() != null) {
-                    hashtable.put(timeStamp, item.getText());
+                    hashtable.put(timeStamp, item.getText().toString());
                 }
                 return hashtable;
             }

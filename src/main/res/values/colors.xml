@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="themeColor">#54a8f7</color>
     <color name="colorPrimary">#54a8f7</color>
     <color name="colorPrimaryDark">#54a8f7</color>
     <color name="colorAccent">#E44B4D</color>
@@ -11,7 +11,7 @@
     <color name="statusBarColor">#06aaf4</color>
     <color name="colorAccentAlpha">#80E44B4D</color>
     <color name="windowBackground">#f9f9f9</color>
-
+    <color name="cardBackground">#FFFFFFFF</color>
     <!-- Male Female-->
     <color name="male">#06aaf4</color>
     <color name="female">#aa33bc</color>

@@ -4,13 +4,12 @@
     android:id="@+id/swfresh_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/windowBackground"
     app:AniBackColor="@color/colorPrimary">
 
     <com.freddon.android.snackkit.extension.widget.ScrollingBoundsRecycleView
         android:id="@+id/rv_data_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/commonBackground"
         app:layoutManager="LinearLayoutManager" />
 </com.scwang.smartrefresh.layout.SmartRefreshLayout>
