@@ -197,7 +197,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_margin="@dimen/formMargin"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:padding="10dp"
             android:text="@string/confirm"
             android:textColor="@color/whiteTextColor"

@@ -83,7 +83,7 @@
                 android:id="@+id/tv_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:background="@color/colorPrimary"
                 android:paddingLeft="3dp"
                 android:paddingRight="3dp"
                 android:textColor="@color/white"

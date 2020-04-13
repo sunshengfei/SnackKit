@@ -63,7 +63,7 @@
                         android:layout_below="@id/tv_name"
                         android:layout_marginLeft="@dimen/fieldSetMargin"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
+                        android:background="@color/colorPrimary"
                         android:paddingLeft="3dp"
                         android:paddingRight="3dp"
                         android:text="Lv0"

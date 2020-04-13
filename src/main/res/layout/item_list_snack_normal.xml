@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/fieldSetMargin"
                         android:layout_marginStart="@dimen/fieldSetMargin"
-                        android:background="@color/colorAccent"
+                        android:background="@color/colorPrimary"
                         android:paddingLeft="3dp"
                         android:paddingRight="3dp"
                         android:textColor="@color/white"

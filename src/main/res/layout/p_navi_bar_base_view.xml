@@ -18,7 +18,7 @@
                     android:layout_width="match_parent"
                     app:navigationIcon="?attr/homeAsUpIndicator"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorAccent"
+                    android:background="@color/colorPrimary"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/AppTheme.PopupOverlay"
                     app:title="">
