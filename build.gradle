@@ -73,9 +73,9 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha02'
     api 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
     api 'androidx.cardview:cardview:1.0.0'
     //*ViewInject 事件注解绑定*//
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
