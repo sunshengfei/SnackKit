@@ -13,22 +13,23 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/textPadding" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/iconSpacing"
-        android:paddingEnd="@dimen/msgItemMargin"
         android:paddingLeft="@dimen/msgItemMargin"
+        android:paddingTop="@dimen/fieldSetMargin"
         android:paddingRight="@dimen/iconPadding"
-        android:paddingTop="@dimen/fieldSetMargin">
-
+        android:paddingBottom="@dimen/iconSpacing"
+        android:paddingEnd="@dimen/iconPadding"
+        android:paddingStart="@dimen/msgItemMargin">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_alignParentRight="true"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
-
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -77,10 +78,10 @@
                         android:layout_marginTop="@dimen/letterSpacing"
                         android:background="@drawable/icon_chat_bulb_rtr"
                         android:ellipsize="end"
-                        android:paddingBottom="@dimen/letterGap"
                         android:paddingLeft="@dimen/letterGap"
-                        android:paddingRight="@dimen/cardPadding"
                         android:paddingTop="@dimen/letterGap"
+                        android:paddingRight="@dimen/cardPadding"
+                        android:paddingBottom="@dimen/letterGap"
                         android:textColor="@color/white"
                         android:textIsSelectable="true"
                         android:textSize="@dimen/H5"
@@ -93,8 +94,8 @@
                 android:layout_width="@dimen/avatarNormal"
                 android:layout_height="@dimen/avatarNormal"
                 android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/iconPadding"
                 android:layout_marginStart="@dimen/iconPadding"
+                android:layout_marginLeft="@dimen/iconPadding"
                 android:src="@color/white"
                 app:border_color="@color/whiteHintTextColor"
                 app:border_width="1dp"
@@ -102,6 +103,5 @@
 
         </LinearLayout>
 
-
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
