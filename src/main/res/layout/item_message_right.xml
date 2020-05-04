@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/view_divider_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:orientation="vertical"
         android:paddingTop="@dimen/textPadding" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/view_divider_container"
+        android:paddingStart="@dimen/msgItemMargin"
         android:paddingLeft="@dimen/msgItemMargin"
         android:paddingTop="@dimen/fieldSetMargin"
-        android:paddingRight="@dimen/iconPadding"
-        android:paddingBottom="@dimen/iconSpacing"
         android:paddingEnd="@dimen/iconPadding"
-        android:paddingStart="@dimen/msgItemMargin">
+        android:paddingRight="@dimen/iconPadding"
+        android:paddingBottom="@dimen/iconSpacing">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_gravity="end"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_alignParentEnd="true">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -70,38 +74,73 @@
                         android:src="@drawable/ic_alert_24dp"
                         android:visibility="gone" />
 
-                    <TextView
-                        android:id="@+id/tv_content"
+                    <ProgressBar
+                        android:id="@+id/processing"
+                        style="@style/progressBarStyle.small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="@dimen/letterSpacing"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/letterGap"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@drawable/icon_chat_bulb_rtr"
-                        android:ellipsize="end"
-                        android:paddingLeft="@dimen/letterGap"
-                        android:paddingTop="@dimen/letterGap"
-                        android:paddingRight="@dimen/cardPadding"
-                        android:paddingBottom="@dimen/letterGap"
-                        android:textColor="@color/white"
-                        android:textIsSelectable="true"
-                        android:textSize="@dimen/H5"
-                        tools:text="Google Nexus 6 Google Nexus 6Google Nexus 6Google Nexus 6Google Nexus 6Google Nexus 6" />
+                        android:backgroundTint="@color/themeColor"
+                        android:orientation="vertical"
+                        tools:ignore="UnusedAttribute">
+
+                        <TextView
+                            android:id="@+id/tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/letterGap"
+                            android:paddingTop="@dimen/letterGap"
+                            android:paddingRight="@dimen/cardPadding"
+                            android:paddingBottom="@dimen/letterGap"
+                            android:textColor="@color/white"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/H5"
+                            tools:text="Google Nexus 6 Google Nexus 6Google Nexus 6Google Nexus 6Google Nexus 6Google Nexus 6" />
+
+                        <TextView
+                            android:id="@+id/tv_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:ellipsize="end"
+                            android:paddingLeft="@dimen/letterGap"
+                            android:paddingRight="@dimen/cardPadding"
+                            android:paddingBottom="@dimen/letterGap"
+                            android:text="查看更多..."
+                            android:textColor="@color/white"
+                            android:textIsSelectable="false"
+                            android:textSize="@dimen/H5"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <com.freddon.android.snackkit.extension.widget.ElipseImageView
+            <net.steamcrafted.materialiconlib.MaterialIconView
                 android:id="@+id/iv_head"
                 android:layout_width="@dimen/avatarNormal"
                 android:layout_height="@dimen/avatarNormal"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/iconPadding"
                 android:layout_marginLeft="@dimen/iconPadding"
+                android:layout_marginEnd="@dimen/iconPadding"
+                android:layout_marginRight="@dimen/iconPadding"
+                android:scaleType="centerInside"
                 android:src="@color/white"
-                app:border_color="@color/whiteHintTextColor"
-                app:border_width="1dp"
-                app:corner_radius="@dimen/avatarNormalRadius" />
+                app:materialIcon="account"
+                app:materialIconColor="@color/black"
+                app:materialIconSize="24dp" />
 
         </LinearLayout>
 
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

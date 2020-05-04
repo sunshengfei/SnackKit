@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/commonBackground"
+    android:background="@color/windowBackground"
     android:orientation="vertical">
 
     <ScrollView
@@ -25,7 +25,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/formMargin"
-                    android:background="@color/commonBackground" />
+                    android:background="@color/windowBackground" />
 
                 <RelativeLayout
                     android:id="@+id/rl_setting_modify_info"
@@ -108,7 +108,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/formMargin"
-                    android:background="@color/commonBackground" />
+                    android:background="@color/windowBackground" />
 
                 <RelativeLayout
                     android:id="@+id/rl_setting_update"

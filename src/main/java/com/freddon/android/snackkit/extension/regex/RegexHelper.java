@@ -433,6 +433,10 @@ public class RegexHelper {
         return portInt > 0 && portInt < 65536;
     }
 
+    public static boolean isPort(int port) {
+        return port > 0 && port < 65536;
+    }
+
     public static boolean isMatch(String result, String param) {
         try {
             Pattern pattern = Pattern.compile(param);

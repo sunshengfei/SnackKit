@@ -229,7 +229,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/iconPadding"
-                android:background="@color/commonBackground" />
+                android:background="@color/windowBackground" />
 
 
             <LinearLayout
@@ -251,7 +251,7 @@
                 <View
                     android:layout_width="@dimen/iconPadding"
                     android:layout_height="match_parent"
-                    android:background="@color/commonBackground" />
+                    android:background="@color/windowBackground" />
 
                 <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
                     android:id="@+id/menu_item_my_loves"
@@ -267,7 +267,7 @@
                 <View
                     android:layout_width="@dimen/iconPadding"
                     android:layout_height="match_parent"
-                    android:background="@color/commonBackground" />
+                    android:background="@color/windowBackground" />
 
                 <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
                     android:id="@+id/menu_item_my_favs"
@@ -286,7 +286,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/iconPadding"
-                android:background="@color/commonBackground" />
+                android:background="@color/windowBackground" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -307,7 +307,7 @@
                 <View
                     android:layout_width="@dimen/iconPadding"
                     android:layout_height="match_parent"
-                    android:background="@color/commonBackground" />
+                    android:background="@color/windowBackground" />
 
                 <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
                     android:layout_width="0dp"
@@ -321,7 +321,7 @@
                 <View
                     android:layout_width="@dimen/iconPadding"
                     android:layout_height="match_parent"
-                    android:background="@color/commonBackground" />
+                    android:background="@color/windowBackground" />
 
                 <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
                     android:layout_width="0dp"

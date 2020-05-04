@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/navAppBar"
+        android:id="@+id/navAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.PopupOverlay"
+        android:visibility="gone"
+        app:layout_behavior="com.sagocloud.ntworker.behavior.AppBarLayoutBehavior">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/p_base_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:theme="@style/AppTheme.PopupOverlay"
-            app:layout_behavior="com.sagocloud.ntworker.behavior.AppBarLayoutBehavior">
-            <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/p_base_toolbar"
-                    android:layout_width="match_parent"
-                    app:navigationIcon="?attr/homeAsUpIndicator"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
-                    app:layout_collapseMode="pin"
-                    app:popupTheme="@style/AppTheme.PopupOverlay"
-                    app:title="">
-            </androidx.appcompat.widget.Toolbar>
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_collapseMode="pin"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title=""/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.freddon.android.snackkit.extension.widget.NaviBar
-            android:id="@+id/navibar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:backIcon="@drawable/selector_click_nav_icon_return_black"
-            app:isShowBack="true"
-            app:isShowFilter="false"
-            app:titleColor="@color/defaultTextColor"
-            app:layout_constraintTop_toTopOf="parent"
-            app:mode="normal"
-            app:titleAlign="center"
-            app:titleStr="" />
+        android:id="@+id/navibar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:backIcon="@drawable/selector_click_nav_icon_return_black"
+        app:isShowBack="true"
+        app:isShowFilter="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:mode="normal"
+        app:titleAlign="center"
+        app:titleColor="@color/defaultTextColor"
+        app:titleStr="" />
 
-    <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

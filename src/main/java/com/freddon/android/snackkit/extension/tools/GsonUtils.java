@@ -93,6 +93,24 @@ public class GsonUtils {
         }
     }
 
+    public static String prettyWithoutDefault(@NonNull String string) {
+        try {
+            GsonBuilder builder = new GsonBuilder();
+            builder.setPrettyPrinting();
+            builder.enableComplexMapKeySerialization();
+            Gson gson = builder.create();
+            if (string.startsWith("[")) {
+                List p = gson.fromJson(string, List.class);
+                return gson.toJson(p);
+            } else {
+                HashMap p = gson.fromJson(string, HashMap.class);
+                return gson.toJson(p);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public static JSONArray toJsonArray(Collection collection) {
         try {
             return new JSONArray(GsonUtils.toJson(collection));

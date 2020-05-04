@@ -115,7 +115,7 @@
                         android:maxLines="1"
                         android:text=""
                         android:textColor="@color/white"
-                        android:textColorHint="@color/commonBackground"
+                        android:textColorHint="@color/windowBackground"
                         android:textSize="@dimen/abc_text_size_title_material_toolbar"/>
 
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/commonBackground"
+    android:background="@color/windowBackground"
     android:orientation="vertical"
     android:baselineAligned="false">
 
@@ -22,7 +22,7 @@
                 android:id="@+id/et_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/commonBackground"
+                android:background="@color/windowBackground"
                 android:gravity="start"
                 android:maxLines="2"
                 android:padding="@dimen/formMargin"
@@ -41,7 +41,7 @@
                 android:id="@+id/et_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/commonBackground"
+                android:background="@color/windowBackground"
                 android:gravity="start"
                 android:minHeight="@dimen/contentComposerHeight"
                 android:padding="@dimen/formMargin"

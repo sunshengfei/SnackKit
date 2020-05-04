@@ -61,23 +61,25 @@
     </style>
 
     <style name="progressBarStyle">
-        <item name="android:progressDrawable">@drawable/ic_vector_loading</item>
-        <item name="android:indeterminateDrawable">@anim/animate_v_loading</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_height">@dimen/abc_action_bar_progress_bar_size</item>
-        <item name="android:layout_width">@dimen/abc_action_bar_progress_bar_size</item>
-        <item name="android:indeterminate">true</item>
-        <item name="android:indeterminateOnly">true</item>
-        <item name="android:indeterminateBehavior">repeat</item>
-        <item name="android:indeterminateDuration">3000</item>
-        <item name="android:interpolator">@android:interpolator/linear</item>
-        <item name="android:minWidth">@dimen/abc_action_bar_progress_bar_size</item>
-        <item name="android:maxWidth">@dimen/abc_action_bar_progress_bar_size</item>
-        <item name="android:minHeight">@dimen/abc_action_bar_progress_bar_size</item>
-        <item name="android:maxHeight">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <!--        <item name="android:progressDrawable">@drawable/ic_vector_loading</item>-->
+<!--        <item name="android:indeterminateDrawable">@anim/animate_v_loading</item>-->
+<!--        <item name="android:layout_gravity">center</item>-->
+<!--        <item name="android:layout_height">@dimen/abc_action_bar_progress_bar_size</item>-->
+<!--        <item name="android:layout_width">@dimen/abc_action_bar_progress_bar_size</item>-->
+<!--        <item name="android:indeterminate">true</item>-->
+<!--        <item name="android:indeterminateOnly">true</item>-->
+<!--        <item name="android:indeterminateBehavior">repeat</item>-->
+<!--        <item name="android:indeterminateDuration">3000</item>-->
+<!--        <item name="android:interpolator">@android:interpolator/linear</item>-->
+<!--        <item name="android:minWidth">@dimen/abc_action_bar_progress_bar_size</item>-->
+<!--        <item name="android:maxWidth">@dimen/abc_action_bar_progress_bar_size</item>-->
+<!--        <item name="android:minHeight">@dimen/abc_action_bar_progress_bar_size</item>-->
+<!--        <item name="android:maxHeight">@dimen/abc_action_bar_progress_bar_size</item>-->
     </style>
 
     <style name="progressBarStyle.small">
+        <item name="colorControlActivated">@color/themeColor</item>
         <item name="android:layout_height">16dip</item>
         <item name="android:layout_width">16dip</item>
         <item name="android:minWidth">16dip</item>

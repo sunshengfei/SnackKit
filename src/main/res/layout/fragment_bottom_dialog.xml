@@ -6,7 +6,7 @@
 
     <com.freddon.android.snackkit.snackblogs.ui.views.DialogView
         android:id="@+id/fragment_bottomdialogView"
-        android:background="@color/commonBackground"
+        android:background="@color/windowBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

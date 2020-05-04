@@ -18,7 +18,7 @@
         android:layout_marginRight="@dimen/tableCellSpacing"
         android:contentDescription="@string/emptyImage"
         android:scaleType="centerCrop"
-        android:src="@color/commonBackground" />
+        android:src="@color/windowBackground" />
 
 
     <RelativeLayout

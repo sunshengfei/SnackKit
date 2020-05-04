@@ -10,7 +10,6 @@
     <!-- 509fea -->
     <color name="statusBarColor">#06aaf4</color>
     <color name="colorAccentAlpha">#80E44B4D</color>
-    <color name="windowBackground">#f9f9f9</color>
     <color name="cardBackground">#FFFFFFFF</color>
     <!-- Male Female-->
     <color name="male">#06aaf4</color>
@@ -18,7 +17,7 @@
     <color name="dnmale">#E44B4D</color>
     <!-- tabbar-->
     <color name="naviBackground">#06aaf4</color>
-    <color name="commonBackground">#f9f9f9</color>
+    <color name="windowBackground">#f9f9f9</color>
     <color name="chatBg">#eff1f1</color>
     <color name="black">#000000</color>
     <color name="milk">#ededed</color>
