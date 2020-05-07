@@ -1,15 +1,13 @@
 package com.freddon.android.snackkit.extension.tools;
 
 import androidx.annotation.NonNull;
-import com.freddon.android.snackkit.extension.regex.RegexHelper;
 
-import java.util.Arrays;
-import java.util.Vector;
+import com.freddon.android.snackkit.extension.regex.RegexHelper;
 
 public class NetTools {
 
     public static String ipv4Toipv6(String ipv4) {
-        if (RegexHelper.isIP(ipv4)) {
+        if (RegexHelper.isUniformIP(ipv4)) {
             String[] ips = ipv4.split(".");
             for (int i = 0; i < ips.length; i++) {
                 int bit = Integer.parseInt(ips[i]);
@@ -27,7 +25,7 @@ public class NetTools {
      */
     public static boolean isIpv4ASegments(@NonNull String ipv4) {
 //        10.0.0.0--10.255.255.255
-        if (RegexHelper.isIP(ipv4)) {
+        if (RegexHelper.isUniformIP(ipv4)) {
             return ipv4.startsWith("10.");
         }
         return false;
@@ -40,7 +38,7 @@ public class NetTools {
      * @return
      */
     public static boolean isIpv4BSegments(@NonNull String ipv4) {
-        if (RegexHelper.isIP(ipv4)) {
+        if (RegexHelper.isUniformIP(ipv4)) {
             String[] ipArr = ipv4.split("\\.");
             if ("172".equals(ipArr[0])) {
                 int ip1 = Integer.parseInt(ipArr[1]);
@@ -57,7 +55,7 @@ public class NetTools {
      * @return
      */
     public static boolean isIpv4CSegments(@NonNull String ipv4) {
-        if (RegexHelper.isIP(ipv4)) {
+        if (RegexHelper.isUniformIP(ipv4)) {
             return ipv4.startsWith("192.168");
         }
         return false;

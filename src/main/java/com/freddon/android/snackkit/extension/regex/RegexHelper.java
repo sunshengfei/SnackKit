@@ -4,6 +4,8 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import com.freddon.android.snackkit.extension.tools.GsonUtils;
+
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -78,6 +80,10 @@ public class RegexHelper {
         return str.matches("[0-9a-fA-F]{2}((-[0-9a-fA-F]{2}){5}|(:[0-9a-fA-F]{2}){5})");
     }
 
+    public static boolean isJSON(String content) {
+        return GsonUtils.prettyWithoutDefault(content) != null;
+    }
+
 
     public interface SlotCaller {
         String getString(String key);
@@ -143,13 +149,31 @@ public class RegexHelper {
      * @param str
      * @return
      */
-    public static boolean isIP(String str) {
+    public static boolean isUniformIP(String str) {
+        if (isEmpty(str)) {
+            return false;
+        }
+        if (isIPv6(str)) {
+            return true;
+        }
+        return str.matches("([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])");
+    }
+
+    public static boolean isIPv4(String str) {
         if (isEmpty(str)) {
             return false;
         }
         return str.matches("([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])\\.([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])");
     }
 
+
+    public static boolean isIPv6(String str) {
+        if (RegexHelper.isEmpty(str)) return false;
+        if (isHost(str)) return false;
+        if (isIPv4(str)) return false;
+        final String regex = "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))";
+        return str.matches(regex);
+    }
 
     /**
      * 验证包含字母数字
