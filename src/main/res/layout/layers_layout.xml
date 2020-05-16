@@ -11,28 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:maskIcon="@drawable/flag_linkerror"
-        app:maskText="请求错误" />
+        app:maskText="@string/layers_request_error" />
 
     <com.freddon.android.snackkit.extension.widget.MaskLayoutView
         android:id="@+id/empty_layout_exception"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:maskIcon="@drawable/flag_sad"
-        app:maskText="数据错误" />
+        app:maskText="@string/layers_data_error" />
 
     <com.freddon.android.snackkit.extension.widget.MaskLoadingView
         android:id="@+id/layout_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/windowBackground"
-        />
+        android:background="@color/windowBackground" />
 
     <com.freddon.android.snackkit.extension.widget.MaskLayoutView
         android:id="@+id/empty_layout_mask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:maskIcon="@drawable/flag_404"
-        app:maskText="没有内容" />
+        app:maskIcon="@drawable/flag_empty"
+        app:maskText="@string/layers_empty" />
 
 
 </FrameLayout>

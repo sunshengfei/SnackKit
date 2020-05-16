@@ -22,13 +22,15 @@ android {
 
     buildTypes {
         release {
-            postprocessing {
-                removeUnusedCode false
-                removeUnusedResources false
-                obfuscate false
-                optimizeCode false
-                proguardFile 'proguard-rules.pro'
-            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            postprocessing {
+//                removeUnusedCode false
+//                removeUnusedResources false
+//                obfuscate false
+//                optimizeCode false
+//                proguardFile 'proguard-rules.pro'
+//            }
         }
     }
 
@@ -74,6 +76,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha02'
+    implementation 'net.steamcrafted:materialiconlib:1.1.5'
     api 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'com.google.android.material:material:1.2.0-alpha02'
     api 'androidx.cardview:cardview:1.0.0'

@@ -13,9 +13,7 @@
     </string>
     <string name="title_activity_login">Sign in</string>
 
-    <string name="placeholder_username">用户名</string>
     <string name="placeholder_nicknamee">昵称</string>
-    <string name="placeholder_pwd">密码</string>
     <string name="placeholder_email">请输入电子邮箱地址</string>
     <string name="placeholder_rpwd">请输入密码</string>
     <string name="placeholder_opwd">请输入原密码</string>
@@ -36,9 +34,21 @@
     <string name="expand_operation">更多操作</string>
 
     <string name="settings">设置</string>
-    <string name="send">发送</string>
     <string name="back">返回</string>
-    <string name="confirm">确定</string>
     <string name="form_title">请填写标题</string>
     <string name="form_content">这里写内容</string>
+
+
+    <!--    region-->
+    <string name="placeholder_username">请输入用户名</string>
+    <string name="placeholder_pwd">请输入密码</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="layers_request_error">请求错误</string>
+    <string name="layers_data_error">数据错误</string>
+    <string name="layers_empty">没有内容</string>
+    <string name="message_bulb_view_more">查看更多…</string>
+    <string name="send">发送</string>
+    <!--    endregion-->
 </resources>

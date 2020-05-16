@@ -166,9 +166,9 @@ public class AndroidTools {
                     field.setAccessible(true);
                     timeStamp = (long) field.get(clipDescription);
                 } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                 }
                 if (item != null && item.getText() != null) {
                     hashtable.put(timeStamp, item.getText().toString());

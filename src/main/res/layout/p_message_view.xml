@@ -14,7 +14,7 @@
         app:isShowFilter="false"
         app:mode="normal"
         app:titleAlign="center"
-        app:titleStr="动态" />
+        app:titleStr="" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coor_navibar_activity"

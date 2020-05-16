@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:descendantFocusability="blocksDescendants"
+    android:descendantFocusability="afterDescendants"
     android:orientation="vertical">
 
     <LinearLayout
@@ -115,7 +115,7 @@
                             android:paddingLeft="@dimen/letterGap"
                             android:paddingRight="@dimen/cardPadding"
                             android:paddingBottom="@dimen/letterGap"
-                            android:text="查看更多..."
+                            android:text="@string/message_bulb_view_more"
                             android:textColor="@color/white"
                             android:textIsSelectable="false"
                             android:textSize="@dimen/H5"
