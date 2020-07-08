@@ -136,7 +136,7 @@
                 android:layout_marginRight="@dimen/iconPadding"
                 android:scaleType="centerInside"
                 android:src="@color/white"
-                app:materialIcon="account"
+                app:materialIcon="cellphone"
                 app:materialIconColor="@color/black"
                 app:materialIconSize="24dp" />
 

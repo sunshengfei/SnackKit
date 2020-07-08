@@ -41,7 +41,7 @@
                 android:layout_marginRight="@dimen/iconPadding"
                 android:src="@color/white"
                 android:scaleType="centerInside"
-                app:materialIcon="cloud_tags"
+                app:materialIcon="cloud_circle"
                 app:materialIconColor="@color/black"
                 app:materialIconSize="24dp" />
 
