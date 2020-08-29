@@ -74,14 +74,14 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha02'
     implementation 'net.steamcrafted:materialiconlib:1.1.5'
     api 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'com.google.android.material:material:1.2.0-alpha02'
     api 'androidx.cardview:cardview:1.0.0'
     //*ViewInject 事件注解绑定*//
-    implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
+    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
@@ -92,9 +92,6 @@ dependencies {
     api 'io.reactivex.rxjava3:rxjava:3.0.6'
 
     api 'com.squareup.retrofit2:retrofit:2.9.0'
-
-    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api 'io.reactivex.rxjava2:rxjava:2.2.19'
     //网络请求
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
     api 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
