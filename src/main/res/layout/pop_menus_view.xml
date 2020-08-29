@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.freddon.android.snackkit.extension.widget.container.RecyclerGridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/popMenusRecyclerView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layoutAnimation="@anim/animation_pushed_menu"
-    android:minHeight="@dimen/tabCreativeMenuPagerHeight" />

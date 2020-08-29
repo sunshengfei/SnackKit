@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.ResultReceiver;
-import androidx.core.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -15,22 +13,22 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.freddon.android.snackkit.R;
-import com.jakewharton.rxbinding2.view.RxView;
+import androidx.core.content.ContextCompat;
 
-import java.lang.reflect.Method;
+import com.freddon.android.snackkit.R;
+import com.jakewharton.rxbinding4.view.RxView;
+
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
+
 
 /**
  * Created by fred 2016-05-27
@@ -86,7 +84,6 @@ public class NaviBar extends LinearLayout {
 
     OnNaviBarEventListener onNaviBarEventListener;
     OnQueryTextListener mOnQueryChangeListener;
-    static final AutoCompleteTextViewReflector HIDDEN_METHOD_INVOKER = new AutoCompleteTextViewReflector();
     /**
      * 当前选择的模式
      */
@@ -828,87 +825,6 @@ public class NaviBar extends LinearLayout {
             return true;
         }
     };
-
-
-    /**
-     * 反射
-     */
-    private static class AutoCompleteTextViewReflector {
-        private Method doBeforeTextChanged, doAfterTextChanged;
-        private Method ensureImeVisible;
-        private Method showSoftInputUnchecked;
-
-        AutoCompleteTextViewReflector() {
-            try {
-                doBeforeTextChanged = AutoCompleteTextView.class
-                        .getDeclaredMethod("doBeforeTextChanged");
-                doBeforeTextChanged.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                // Ah well.
-            }
-            try {
-                doAfterTextChanged = AutoCompleteTextView.class
-                        .getDeclaredMethod("doAfterTextChanged");
-                doAfterTextChanged.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                // Ah well.
-            }
-            try {
-                ensureImeVisible = AutoCompleteTextView.class
-                        .getMethod("ensureImeVisible", boolean.class);
-                ensureImeVisible.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                // Ah well.
-            }
-            try {
-                showSoftInputUnchecked = InputMethodManager.class.getMethod(
-                        "showSoftInputUnchecked", int.class, ResultReceiver.class);
-                showSoftInputUnchecked.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                // Ah well.
-            }
-        }
-
-        void doBeforeTextChanged(AutoCompleteTextView view) {
-            if (doBeforeTextChanged != null) {
-                try {
-                    doBeforeTextChanged.invoke(view);
-                } catch (Exception e) {
-                }
-            }
-        }
-
-        void doAfterTextChanged(AutoCompleteTextView view) {
-            if (doAfterTextChanged != null) {
-                try {
-                    doAfterTextChanged.invoke(view);
-                } catch (Exception e) {
-                }
-            }
-        }
-
-        void ensureImeVisible(AutoCompleteTextView view, boolean visible) {
-            if (ensureImeVisible != null) {
-                try {
-                    ensureImeVisible.invoke(view, visible);
-                } catch (Exception e) {
-                }
-            }
-        }
-
-        void showSoftInputUnchecked(InputMethodManager imm, View view, int flags) {
-            if (showSoftInputUnchecked != null) {
-                try {
-                    showSoftInputUnchecked.invoke(imm, flags, null);
-                    return;
-                } catch (Exception e) {
-                }
-            }
-
-            // Hidden method failed, call public version instead
-            imm.showSoftInput(view, flags);
-        }
-    }
 
 
     //************************  SETTER & GETTER
