@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:minWidth="300dp"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:id="@+id/view_table_menus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/formMargin"
+        android:layout_marginRight="@dimen/formMargin"
+        android:layout_marginTop="@dimen/formMargin">
+
+        <TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_cell_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabIcon="@drawable/ic_menu_reply"
+                    app:text="回复" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_cell_dislike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabIcon="@drawable/ic_menu_dislike"
+                    app:text="踩" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_cell_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabIcon="@drawable/ic_menu_articles"
+                    app:text="复制" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_cell_against"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabIcon="@drawable/ic_menu_against"
+                    app:text="举报" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.freddon.android.snackkit.extension.widget.tab.cell.MenuCell
+                    android:id="@+id/menu_cell_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tabIcon="@drawable/ic_menu_del"
+                    app:text="删除" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" />
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/formMargin"
+        android:layout_marginTop="@dimen/formMargin"
+        android:src="@drawable/icon_cross_round" />
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <uk.co.senab.photoview.PhotoView
+        android:id="@+id/photoView"
+        android:transitionName="SHARE_ELEMENT_PCITURE"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.freddon.android.snackkit.extension.widget.NaviBar
+        android:id="@+id/navibar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
+        app:isShowBack="true"
+        app:isShowFilter="false"
+        app:mode="normal"
+        app:titleAlign="center"
+        app:titleStr="图片查看器" />
+</FrameLayout>

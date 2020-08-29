@@ -6,15 +6,24 @@
     <color name="colorAccent">#E44B4D</color>
     <color name="textColorPrimary">#ededed</color>
 
+    <color name="colorSplash">#5A5B5B</color>
     <!-- 509fea -->
+    <color name="statusBarColor">#06aaf4</color>
     <color name="colorAccentAlpha">#80E44B4D</color>
     <color name="cardBackground">#FFFFFFFF</color>
     <!-- Male Female-->
+    <color name="male">#06aaf4</color>
+    <color name="female">#aa33bc</color>
+    <color name="dnmale">#E44B4D</color>
     <!-- tabbar-->
+    <color name="naviBackground">#06aaf4</color>
     <color name="windowBackground">#f9f9f9</color>
+    <color name="chatBg">#eff1f1</color>
     <color name="black">#000000</color>
     <color name="milk">#ededed</color>
+    <color name="yellow">#f2d969</color>
     <color name="golden">#f2c769</color>
+    <color name="solidMild">#f4f3ee</color>
     <color name="white">#FFFFFF</color>
     <color name="white_press">#FAFAFA</color>
     <color name="dividerColor">#f1f1f1</color>
@@ -30,5 +39,6 @@
     <color name="defaultHintTextColor">#AEAEAE</color>
     <color name="whiteTextColor">#ededed</color>
     <color name="whiteHintTextColor">#eaeaea</color>
+    <color name="highlightTextColor">#54a8f7</color>
     <color name="navTextColor">#00000000</color>
 </resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_item_bg"
+    android:orientation="horizontal"
+    android:padding="@dimen/formMargin">
+
+    <com.freddon.android.snackkit.extension.widget.ElipseImageView
+        android:id="@+id/iv_comment_item"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/iconPadding"
+        android:layout_marginRight="@dimen/iconPadding"
+        android:src="@color/colorPrimary"
+        app:corner_radius="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tableCellSpacing">
+
+            <TextView
+                android:id="@+id/name_comment_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/statusBarColor"
+                android:textSize="@dimen/H3"
+                tools:text="title" />
+
+            <TextView
+                android:id="@+id/praise_comment_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/name_comment_item"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:drawableEnd="@drawable/icon_praise_click"
+                android:drawablePadding="@dimen/iconSpacing"
+                android:drawableRight="@drawable/icon_praise_click"
+                android:gravity="bottom"
+                android:textColor="@color/defaultHintTextColor"
+                android:textSize="@dimen/H3" />
+
+            <TextView
+                android:id="@+id/model_comment_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name_comment_item"
+                android:layout_marginEnd="@dimen/letterGap"
+                android:layout_marginRight="@dimen/letterGap"
+                android:textColor="@color/defaultHintTextColor"
+                android:textSize="@dimen/H5"
+                tools:text="iPhone 6s" />
+
+            <TextView
+                android:id="@+id/date_comment_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/model_comment_item"
+                android:layout_below="@+id/name_comment_item"
+                android:layout_toEndOf="@+id/model_comment_item"
+                android:layout_toRightOf="@+id/model_comment_item"
+                android:textColor="@color/defaultHintTextColor"
+                android:textSize="@dimen/H5"
+                tools:text="10分钟前" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/content_comment_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="@dimen/H3"
+            tools:text="评论内容" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
