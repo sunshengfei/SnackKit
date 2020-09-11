@@ -21,7 +21,6 @@
             android:layout_height="match_parent"
             android:background="?android:attr/selectableItemBackground"
             android:padding="10dp"
-            android:tint="@color/navTextColor"
             android:src="@drawable/ic_nav_return"
             app:layout_constraintLeft_toLeftOf="parent" />
 
