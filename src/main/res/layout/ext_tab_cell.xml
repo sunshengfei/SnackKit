@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:layout_centerHorizontal="true"
+        android:padding="@dimen/letterSpacing"
         android:src="@drawable/selector_tab_chat" />
 
     <TextView
@@ -21,7 +22,7 @@
         android:layout_marginTop="@dimen/letterSpacing"
         android:maxLines="1"
         android:textColor="@drawable/selector_tab_color"
-        android:textSize="@dimen/H5"
+        android:textSize="@dimen/H6"
         tools:text="text" />
 
 </RelativeLayout>

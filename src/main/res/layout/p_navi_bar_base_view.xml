@@ -12,23 +12,25 @@
         android:theme="@style/AppTheme.PopupOverlay"
         android:visibility="gone"
         app:layout_behavior="com.sagocloud.ntworker.behavior.AppBarLayoutBehavior">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/p_base_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
             android:background="@color/colorPrimary"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
             app:layout_collapseMode="pin"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title=""/>
+            app:title=""
+            app:titleTextAppearance="@style/AppTheme.PopupOverlay.Text" app:titleTextColor="@color/defaultTextColor"  />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.freddon.android.snackkit.extension.widget.NaviBar
         android:id="@+id/navibar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="@dimen/actionBarSize"
         app:backIcon="@drawable/selector_click_nav_icon_return_black"
         app:isShowBack="true"
         app:isShowFilter="false"

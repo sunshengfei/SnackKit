@@ -17,7 +17,7 @@
     <com.freddon.android.snackkit.extension.widget.NaviBar
         android:id="@+id/navibar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="@dimen/actionBarSize"
         android:visibility="gone"
         app:isShowBack="true"
         app:isShowFilter="false"

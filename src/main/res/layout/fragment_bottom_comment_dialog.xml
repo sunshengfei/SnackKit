@@ -4,9 +4,9 @@
                                                      android:layout_width="match_parent"
                                                      android:layout_height="wrap_content">
 
-    <com.freddon.android.snackkit.snackblogs.ui.views.CommentDialogView
-        android:id="@+id/fragment_commentdialogView"
-        android:background="@color/windowBackground"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<!--    <com.freddon.android.snackkit.snackblogs.ui.views.CommentDialogView-->
+<!--        android:id="@+id/fragment_commentdialogView"-->
+<!--        android:background="@color/windowBackground"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" />-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

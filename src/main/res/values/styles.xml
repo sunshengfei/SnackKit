@@ -95,12 +95,21 @@
 
     </style>
 
-    <style name="Translucent.Navigation.Style" parent="@android:style/Animation.Translucent" >
+    <style name="Translucent.Navigation.Style" parent="@android:style/Animation.Translucent">
         <item name="android:windowEnterAnimation">@anim/animate_slide_right</item>
         <item name="android:windowExitAnimation">@anim/animate_slide_left</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="actionMenuTextColor">@color/defaultTextColor</item>
+        <item name="android:actionMenuTextColor">@color/defaultTextColor</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay.Text">
+        <item name="android:textSize">@dimen/H3</item>
+        <item name="titleTextColor">@color/defaultTextColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

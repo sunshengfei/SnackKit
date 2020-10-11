@@ -6,9 +6,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 
 import java.io.ByteArrayOutputStream;
@@ -22,7 +24,7 @@ import java.io.IOException;
  */
 public class BitmapUtils {
 
-    public static boolean decodeSampledBitmapFromFile(Context context,String filepath) {
+    public static boolean decodeSampledBitmapFromFile(Context context, String filepath) {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filepath, options);
@@ -349,17 +351,18 @@ public class BitmapUtils {
 
     /**
      * 压缩，有待调整
+     *
      * @param var0
      * @param var1
      * @return
      */
     public static String getScaledImage(Context var0, String var1) {
         File var2 = new File(var1);
-        if(!var2.exists()) {
+        if (!var2.exists()) {
             return var1;
         } else {
             long var3 = var2.length();
-            if(var3 <= 51200L) {
+            if (var3 <= 51200L) {
                 return var1;
             } else {
                 Bitmap var5 = decodeScaleImage(var1, 1280, 1920);
@@ -385,7 +388,7 @@ public class BitmapUtils {
         Bitmap var5 = BitmapFactory.decodeFile(var0, var3);
         int var6 = readPictureDegree(var0);
         Bitmap var7 = null;
-        if(var5 != null && var6 != 0) {
+        if (var5 != null && var6 != 0) {
             var7 = rotateImageView(var6, var5);
             var5.recycle();
             var5 = null;
@@ -398,10 +401,11 @@ public class BitmapUtils {
 
     public static Bitmap rotateImageView(int var0, Bitmap var1) {
         Matrix var2 = new Matrix();
-        var2.postRotate((float)var0);
+        var2.postRotate((float) var0);
         Bitmap var3 = Bitmap.createBitmap(var1, 0, 0, var1.getWidth(), var1.getHeight(), var2, true);
         return var3;
     }
+
     public static BitmapFactory.Options getBitmapOptions(String var0) {
         BitmapFactory.Options var1 = new BitmapFactory.Options();
         var1.inJustDecodeBounds = true;
@@ -415,7 +419,7 @@ public class BitmapUtils {
         try {
             ExifInterface var2 = new ExifInterface(var0);
             int var3 = var2.getAttributeInt("Orientation", 1);
-            switch(var3) {
+            switch (var3) {
                 case 3:
                     var1 = 180;
                     break;
@@ -430,5 +434,22 @@ public class BitmapUtils {
         }
 
         return var1;
+    }
+
+
+    public static Bitmap drawableToBitmap(Drawable drawable) {
+        // 取 drawable 的长宽
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+        // 取 drawable 的颜色格式
+        Bitmap.Config config = Bitmap.Config.ARGB_8888;
+        // 建立对应 bitmap
+        Bitmap bitmap = Bitmap.createBitmap(w, h, config);
+        // 建立对应 bitmap 的画布
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, w, h);
+        // 把 drawable 内容画到画布中
+        drawable.draw(canvas);
+        return bitmap;
     }
 }

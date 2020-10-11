@@ -7,7 +7,7 @@
     app:contentInsetEnd="0dp"
     app:contentInsetStart="0dp"
     app:layout_collapseMode="pin"
-    app:popupTheme="@style/AppTheme.PopupOverlay"
+    app:titleTextAppearance="@style/AppTheme.PopupOverlay.Text" app:titleTextColor="@color/defaultTextColor"  app:popupTheme="@style/AppTheme.PopupOverlay"
     tools:targetApi="lollipop">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,8 +29,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingLeft="?attr/actionBarSize"
-            android:paddingRight="?attr/actionBarSize"
+            android:paddingLeft="@dimen/actionBarSize"
+            android:paddingRight="@dimen/actionBarSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
