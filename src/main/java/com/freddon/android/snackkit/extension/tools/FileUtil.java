@@ -398,7 +398,7 @@ public class FileUtil {
                 reader = new InputStreamReader(inputStream);
             }
             // 将输入流写入输出流
-            char[] buffer = new char[1024];
+            char[] buffer = new char[4096];
             int n = 0;
             while (-1 != (n = reader.read(buffer))) {
                 writer.write(buffer, 0, n);

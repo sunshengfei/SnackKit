@@ -49,7 +49,7 @@ public class ScrollingBoundsRecycleView extends RecyclerView {
                 int offset = recyclerView.computeVerticalScrollOffset();
                 int extent = recyclerView.computeVerticalScrollExtent();
                 int range = recyclerView.computeVerticalScrollRange();
-                Loger.d("fred", "dy=%s,offset=%s,extent=%s,range=%s", dy, offset, extent, range);
+//                Loger.d("fred", "dy=%s,offset=%s,extent=%s,range=%s", dy, offset, extent, range);
                 if (isLoadMore) {
                     if ((offset + extent >= range) && dy > 0) {
                         if (loadMoreRecycleViewEvent != null) {
