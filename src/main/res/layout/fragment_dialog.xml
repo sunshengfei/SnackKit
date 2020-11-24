@@ -4,9 +4,9 @@
                                                      android:layout_width="match_parent"
                                                      android:layout_height="match_parent">
 
-    <com.freddon.android.snackkit.ui.views.DialogWindowView
-        android:id="@+id/fragment_dialogView"
-        android:background="@color/windowBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<!--    <com.freddon.android.snackkit.ui.views.DialogWindowView-->
+<!--        android:id="@+id/fragment_dialogView"-->
+<!--        android:background="@color/windowBackground"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

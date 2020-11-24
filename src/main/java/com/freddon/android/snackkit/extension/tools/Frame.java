@@ -10,17 +10,27 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created by fred on 16/8/7.
  */
 public class Frame {
 
-
     private static int SCREEN_HEIGHT;
     private static int SCREEN_WIDTH;
     private static float SCREEN_DENSITY;
 
+    public static DisplayMetrics getDisplay(@NonNull WindowManager wm) {
+        DisplayMetrics dm;
+        dm = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(dm);
+        return dm;
+    }
+
+
     public static void init(WindowManager wm) {
+        if (wm == null) return;
         DisplayMetrics dm;
         dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
@@ -28,6 +38,7 @@ public class Frame {
         SCREEN_HEIGHT = dm.heightPixels;
         SCREEN_DENSITY = dm.density;
     }
+
 
     public static int getScreenWidth() {
         return SCREEN_WIDTH;
@@ -47,7 +58,7 @@ public class Frame {
 
     public static int px2dp(float px) {
         float density = Resources.getSystem().getDisplayMetrics().density;
-        return (int)(px / density + 0.5F);
+        return (int) (px / density + 0.5F);
     }
 
 

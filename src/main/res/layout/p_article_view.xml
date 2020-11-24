@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.freddon.android.snackkit.extension.widget.container.MarkdownLayersLayout
-        android:id="@+id/webview_layers"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+<!--    <com.freddon.android.snackkit.extension.widget.container.MarkdownLayersLayout-->
+<!--        android:id="@+id/webview_layers"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        />-->
 </merge>

@@ -4,10 +4,10 @@
                                                      android:layout_width="match_parent"
                                                      android:layout_height="match_parent">
 
-    <com.freddon.android.snackkit.snackblogs.ui.views.CareView
-        android:id="@+id/fragment_careView"
-        android:background="@color/windowBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<!--    <com.freddon.android.snackkit.snackblogs.ui.views.CareView-->
+<!--        android:id="@+id/fragment_careView"-->
+<!--        android:background="@color/windowBackground"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

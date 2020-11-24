@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.freddon.android.snackkit.markdownwebview.MarkDownWebView
-        android:id="@+id/md_layers_item"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/toolbar_webview_layers_item"/>
+<!--    <com.freddon.android.snackkit.markdownwebview.MarkDownWebView-->
+<!--        android:id="@+id/md_layers_item"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_above="@+id/toolbar_webview_layers_item"/>-->
 
     <com.freddon.android.snackkit.extension.widget.CommentBarView
         android:id="@+id/toolbar_webview_layers_item"

@@ -24,21 +24,9 @@
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title=""
-            app:titleTextAppearance="@style/AppTheme.PopupOverlay.Text" app:titleTextColor="@color/defaultTextColor"  />
+            app:titleTextAppearance="@style/AppTheme.PopupOverlay.Text"
+            app:titleTextColor="@color/defaultTextColor" />
     </com.google.android.material.appbar.AppBarLayout>
-
-    <com.freddon.android.snackkit.extension.widget.NaviBar
-        android:id="@+id/navibar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBarSize"
-        app:backIcon="@drawable/selector_click_nav_icon_return_black"
-        app:isShowBack="true"
-        app:isShowFilter="false"
-        app:layout_constraintTop_toTopOf="parent"
-        app:mode="normal"
-        app:titleAlign="center"
-        app:titleColor="@color/defaultTextColor"
-        app:titleStr="" />
 
     <RelativeLayout
         android:id="@+id/container"
