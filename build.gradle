@@ -20,8 +20,12 @@ android {
 
     }
 
-    viewBinding {
-        enabled = true
+//    viewBinding {
+//        enabled = true
+//    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
