@@ -28,6 +28,10 @@ android {
         viewBinding = true
     }
 
+    packagingOptions {
+        exclude "**/module-info.class"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -57,6 +61,10 @@ android {
             jni.srcDirs = ['src/main/cpp/']
             jniLibs.srcDirs = ['libs']
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -95,7 +103,7 @@ dependencies {
 
 
     api 'androidx.constraintlayout:constraintlayout:2.0.1'
-    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.google.code.gson:gson:2.8.5'
     api 'io.reactivex.rxjava3:rxandroid:3.0.0'
     api 'io.reactivex.rxjava3:rxjava:3.0.7'
 

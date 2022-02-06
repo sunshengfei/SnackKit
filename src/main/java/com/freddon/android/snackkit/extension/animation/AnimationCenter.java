@@ -1,6 +1,5 @@
 package com.freddon.android.snackkit.extension.animation;
 
-import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -12,7 +11,6 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
 
 /**
  * Created by fred on 16/8/6.
